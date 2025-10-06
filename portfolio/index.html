@@ -9,27 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Barre de navigation -->
-    <nav>
-        <div class="container">
-            <h1 class="logo">Raphael DIEZ PECOSTE</h1>
-            <ul class="nav-links">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#education">Formation</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <!-- Liens de contact -->
-            <div class="contact-nav">
-                <a href="https://github.com/RaphaelDP" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/raphael-diezpecoste" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://gitlab.com/RaphaelDP" target="_blank" title="GitLab"><i class="fab fa-gitlab"></i></a>
-                <a href="mailto:raphael.diezpecoste.pro@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </nav>
+  <div id="header"></div>
 
     <!-- Section À propos -->
     <section id="about">
@@ -66,41 +46,17 @@
     <section id="skills">
         <div class="container">
             <h2>Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>SQL</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Snowflake</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cube"></i>
-                    <h3>DBT</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3>LangGraph</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-docker"></i>
-                    <h3>Docker</h3>
-                </div>
                 <div class="skill-card"><i class="fab fa-python"></i><h3>Python</h3></div>
-                <div class="skill-card"><i class="fab fa-java"></i><h3>Java</h3></div>
+                <div class="skill-card"><i class="fas fa-brain"></i><h3>IA & Machine Learning</h3></div>
                 <div class="skill-card"><i class="fas fa-database"></i><h3>SQL</h3></div>
+                <div class="skill-card"><i class="fas fa-snowflake"></i><h3>Snowflake</h3></div>
+                <div class="skill-card"><i class="fas fa-cube"></i><h3>DBT</h3></div>
+                <div class="skill-card"><i class="fas fa-project-diagram"></i><h3>LangGraph</h3></div>
+                <div class="skill-card"><i class="fab fa-docker"></i><h3>Docker</h3></div>
+                <div class="skill-card"><i class="fab fa-java"></i><h3>Java</h3></div>
                 <div class="skill-card"><i class="fas fa-c"></i><h3>C / C++</h3></div>
                 <div class="skill-card"><i class="fab fa-js"></i><h3>HTML / CSS / JavaScript</h3></div>
-                <div class="skill-card"><i class="fas fa-brain"></i><h3>IA & Machine Learning</h3></div>
-                <div class="skill-card"><i class="fas fa-server"></i><h3>Snowflake</h3></div>
-                <div class="skill-card"><i class="fas fa-cogs"></i><h3>DBT / LangGraph / Streamlit</h3></div>
-                <div class="skill-card"><i class="fab fa-docker"></i><h3>Docker / Linux</h3></div>
-                <div class="skill-card"><i class="fab fa-gitlab"></i><h3>Git / GitLab CI/CD</h3></div>
+                <div class="skill-card"><i class="fas fa-newspaper-o"></i><h3>Streamlit</h3></div>
             </div>
         </div>
     </section>
@@ -157,7 +113,7 @@
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <h3>Classe Préparatoire aux Grandes Écoles (PSI)</h3>
+                    <h3>Classe Préparatoire aux Grandes Écoles (PCSI - PSI)</h3>
                     <p class="company">Lycée Gustave Eiffel | Bordeaux, France</p>
                     <p class="date">2019 - 2022</p>
                 </div>
@@ -165,7 +121,6 @@
                     <h3>Baccalauréat Scientifique</h3>
                     <p class="company">Lycée Serre de Sarsan | Lourdes, France</p>
                     <p class="date">2016 - 2019</p>
-                    <p>Obtenu avec mention.</p>
                 </div>
             </div>
         </div>
@@ -175,28 +130,52 @@
     <section id="projects">
         <div class="container">
             <h2>Projets</h2>
-            <div class="projects-grid">
+                <p class="section-intro">
+                 Voici une sélection de projets que j’ai réalisés, illustrant mes compétences en Data Engineering, Intelligence Artificielle et développement logiciel.
+                </p>
+                <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Générateur automatique de projets dbt</h3>
-                    <p>Création d’un pipeline LangGraph permettant la génération automatique de modèles dbt et de fichiers YAML à partir d’une description fonctionnelle.</p>
-                    <p><strong>Technos :</strong> Python, LangGraph, dbt, Snowflake, LLMs</p>
+                    <img src="assets/images/dbt-generator/ui.png" alt="Générateur de projets dbt" loading="lazy" class="project-thumbnail">
+                    <div class="project-info">
+                    <h3><a href="projects/dbt-generator.html">Générateur automatique de projets dbt</a></h3>
+                    <p>Automatisation de la génération de projets dbt (Snowflake, LangGraph, LLM) avec interface Streamlit.</p>
+                    <span class="project-tags">Python · LangGraph · dbt · Streamlit</span>
+                    </div>
                 </div>
+
                 <div class="project-card">
-                    <h3>SmartBin</h3>
-                    <p>Développement d’une solution de tri sélectif intelligent avec système de récompense et base de données intégrée.</p>
+                    <img src="assets/images/smartbin/prototype.png" alt="SmartBin" loading="lazy" class="project-thumbnail">
+                    <div class="project-info">
+                    <h3><a href="projects/smartbin.html">SmartBin</a></h3>
+                    <p>Système de tri sélectif intelligent avec récompenses et base de données intégrée.</p>
+                    <span class="project-tags">Java · Base de données</span>
+                    </div>
                 </div>
+
                 <div class="project-card">
-                    <h3>Débruitage d’images</h3>
+                    <img src="assets/images/debruitage/prototype.png" alt="Débruitage d'images" loading="lazy" class="project-thumbnail">
+                    <div class="project-info">
+                    <h3><a href="projects/debruitage.html">Débruitage d'images</a></h3>
                     <p>Création d’un modèle basé sur l’Analyse en Composantes Principales pour le débruitage d’images.</p>
+                    <span class="project-tags">Python</span>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <h3>LoRaBéarn</h3>
-                    <p>Collecte et traitement de télémétries IoT via LoRaWAN, avec dashboards automatisés.</p>
+                    <img src="assets/images/lorabearn/dashboard.png" alt="LoRaBéarn" loading="lazy" class="project-thumbnail">
+                    <div class="project-info">
+                    <h3><a href="projects/lorabearn.html">LoRaBéarn</a></h3>
+                    <p>Collecte et visualisation de télémétries IoT via LoRaWAN, avec dashboards automatisés.</p>
+                    <span class="project-tags">IoT · LoRaWAN · DataViz</span>
+                    </div>
                 </div>
+
                 <div class="project-card">
-                    <h3>Jeu d’échecs en Python</h3>
-                    <p>Jeu d’échecs complet dans le terminal, intégrant toutes les règles officielles. L'objectif étant de s'entraîner à la programmation en Orientée Objet</p>
-                    <p><strong>Technos :</strong> Python (orienté objet)</p>
+                    <img src="assets/images/chess/board.png" alt="Jeu d’échecs en Python" loading="lazy" class="project-thumbnail">
+                    <div class="project-info">
+                    <h3><a href="projects/chess.html">Jeu d’échecs en Python</a></h3>
+                    <p>Jeu d’échecs complet dans le terminal, intégrant toutes les règles officielles.</p>
+                    <span class="project-tags">Python · OOP</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -219,11 +198,8 @@
     </section>
 
     <!-- Pied de page -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Raphael DIEZ PECOSTE. Tous droits réservés.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
+    <script src="../js/dynamic-content.js"></script>
 
     <script src="script.js"></script>
 </body>
