@@ -6,29 +6,53 @@
     <title>Raphael DIEZ PECOSTE | Ingénieur Data & IA</title>
     <link rel="icon" type="image/x-icon" href="assets/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lightbox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <meta name="description" content="Portfolio de Raphaël DIEZ PECOSTE — Ingénieur Data & Intelligence Artificielle. Projets : dbt generator, SmartBin, LoRaBéarn, ...">
 </head>
 <body>
+  <!-- header loaded dynamically -->
   <div id="header"></div>
 
     <!-- Section À propos -->
-    <section id="about">
+    <section id="about" class="hero">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <div class="availability">
                         <span class="available-badge">🟢 Disponible pour de nouvelles opportunités</span>
                     </div>
-                    <h1>Data <span class="highlight">Engineer</span> | <span class="highlight">Intelligence Artificielle</span> | Data <span class="highlight">Analyst</span> | Analytics <span class="highlight">Engineer</span></h1>
-                    <p>
-                        Jeune diplômé de l'école d'ingénieur <strong>CY Tech (ex EISTI)</strong>, spécialisé en <strong>Intelligence Artificielle</strong> et <strong>Data Engineering</strong>.
-                        Curieux, collaboratif et passionné par les innovations technologiques, je cherche à participer à des projets de transformation digitale alliant IA, cloud et pipelines de données.
-                        J'aime concevoir des solutions robustes, modulaires et intelligentes, notamment via des approches MLOps, LLM et automatisation.
+                    <h1>Data <span class="highlight">Engineer</span> | <span class="highlight">Intelligence Artificielle</span> | Data <span class="highlight">Analyst</span> </h1>
+                    <p class="tagline">
+                    Ingénieur Data & IA — automatisation de pipelines, projets dbt et solutions MLOps.  
+                    Je conçois des systèmes data fiables, modulaires et pensés pour durer.
                     </p>
+
+                    <p>
+                    Jeune diplômé de l’école d’ingénieur <strong>CY Tech (ex EISTI)</strong>, spécialisé en <strong>Intelligence Artificielle</strong> et <strong>Data Engineering</strong>.  
+                    Ce qui me motive avant tout, c’est de <strong>développer des solutions pour des problèmes plus ou moins complexes</strong>, tout en gardant une grande liberté de coder par moi-même et de faire les choses à ma manière.
+                    </p>
+
+                    <p>
+                    J’aime pousser chaque projet aussi loin que possible : optimiser, automatiser, ajouter des fonctionnalités,  
+                    jusqu’à obtenir un résultat <strong>complet, robuste et sans faille</strong>.  
+                    Cette recherche de perfection me pousse à toujours <strong>apprendre de nouvelles choses</strong> et à expérimenter avec des technologies variées — pour, comme on dit, <em>avoir plus de cordes à mon arc</em>.
+                    </p>
+
+                    <p>
+                    Curieux et attentif au détail, j’accorde beaucoup d’importance à la <strong>clarté du code</strong> et à la <strong>cohérence globale des systèmes</strong>.  
+                    J’aime comprendre ce que je construis de bout en bout, et améliorer en continu les outils que j’utilise.
+                    </p>
+
+                    <p>
+                    En dehors du code, je pratique régulièrement des activités sportives, comme la musculation en salle de sport et les footings. Tout comme dans le travail, j'aime <strong>relever des défis</strong> et être <strong>performant</strong> dans le sport.
+                    </p>
+
                     <div class="cta-buttons">
-                        <a href="assets/CV_Raphael_DIEZ_PECOSTE.pdf" class="btn-secondary" download>📥 Télécharger mon CV</a>
+                        <a href="assets/cv/CV_Raphael_DIEZ_PECOSTE.pdf" class="btn-primary" download>📥 Télécharger mon CV</a>
+                        <a href="#projects" class="btn-secondary">Voir mes projets</a>
                     </div>
+
                     <div class="social-links">
                         <a href="https://github.com/RaphaelDP" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/raphael-diezpecoste" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -36,36 +60,36 @@
                         <a href="mailto:raphael.diezpecoste.pro@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
+
                 <div class="profile-container">
-                    <img src="assets/profile.jpeg" alt="Raphaël DIEZ PECOSTE" class="profile-img">
+                    <img src="assets/images/profile.jpg" alt="Raphaël DIEZ PECOSTE" class="profile-img">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section Compétences -->
-    <section id="skills">
+    <section id="skills" class="reveal">
         <div class="container">
             <h2>Compétences</h2>
-                <div class="skills-grid">
-                    <div class="skill-card"><i class="fab fa-python"></i><h3>Python</h3></div>
-                    <div class="skill-card"><i class="fas fa-brain"></i><h3>IA & Machine Learning</h3></div>
-                    <div class="skill-card"><i class="fas fa-database"></i><h3>SQL</h3></div>
-                    <div class="skill-card"><i class="fas fa-snowflake"></i><h3>Snowflake</h3></div>
-                    <div class="skill-card"><i class="fas fa-cube"></i><h3>DBT</h3></div>
-                    <div class="skill-card"><i class="fas fa-project-diagram"></i><h3>LangGraph</h3></div>
-                    <div class="skill-card"><i class="fab fa-docker"></i><h3>Docker</h3></div>
-                    <div class="skill-card"><i class="fab fa-java"></i><h3>Java</h3></div>
-                    <div class="skill-card"><i class="fas fa-c"></i><h3>C / C++</h3></div>
-                    <div class="skill-card"><i class="fab fa-js"></i><h3>HTML / CSS / JavaScript</h3></div>
-                    <div class="skill-card"><i class="fab fa-html5"></i><h3>Streamlit</h3></div>
-                </div>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="fab fa-python"></i><h3>Python</h3></div>
+                <div class="skill-card"><i class="fas fa-brain"></i><h3>IA & Machine Learning</h3></div>
+                <div class="skill-card"><i class="fas fa-database"></i><h3>SQL</h3></div>
+                <div class="skill-card"><i class="fas fa-snowflake"></i><h3>Snowflake</h3></div>
+                <div class="skill-card"><i class="fas fa-cube"></i><h3>DBT</h3></div>
+                <div class="skill-card"><i class="fas fa-project-diagram"></i><h3>LangGraph</h3></div>
+                <div class="skill-card"><i class="fab fa-docker"></i><h3>Docker</h3></div>
+                <div class="skill-card"><i class="fab fa-java"></i><h3>Java</h3></div>
+                <div class="skill-card"><i class="fas fa-c"></i><h3>C / C++</h3></div>
+                <div class="skill-card"><i class="fab fa-js"></i><h3>HTML / CSS / JavaScript</h3></div>
+                <div class="skill-card"><i class="fab fa-html5"></i><h3>Streamlit</h3></div>
             </div>
         </div>
     </section>
 
     <!-- Section Expérience -->
-    <section id="experience">
+    <section id="experience" class="reveal">
         <div class="container">
             <h2>Expérience</h2>
             <div class="timeline">
@@ -101,8 +125,9 @@
             </div>
         </div>
     </section>
+
     <!-- Section Formation -->
-    <section id="education">
+    <section id="education" class="reveal">
         <div class="container">
             <h2>Formation</h2>
             <div class="timeline">
@@ -130,7 +155,7 @@
     </section>
 
     <!-- Section Projets -->
-    <section id="projects">
+    <section id="projects" class="reveal">
         <div class="container">
             <h2>Projets</h2>
             <p class="section-intro">
@@ -185,7 +210,7 @@
     </section>
 
     <!-- Section Contact -->
-    <section id="contact">
+    <section id="contact" class="reveal">
         <div class="container">
             <h2>Rentrons en contact !</h2>
             <div class="contact-content">
@@ -200,10 +225,12 @@
         </div>
     </section>
 
-    <!-- Pied de page -->
-    <div id="footer"></div>
-    <script src="../js/dynamic-content.js"></script>
+  <!-- footer loaded dynamically -->
+  <div id="footer"></div>
 
-    <script src="script.js"></script>
+  <!-- scripts: dynamic content (header/footer) then UI script -->
+  <script src="js/dynamic-content.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/lightbox.js"></script>
 </body>
 </html>

@@ -38,7 +38,11 @@ header {
     position: fixed;
     top: 0; left: 0;
     width: 100%;
-    height: clamp(20vh, 30vh, 45vh);
+    height: auto;
+    min-height: clamp(12vh, 20vh, 25vh);
+    padding-block: var(--space-2);
+    flex-direction: column;
+    justify-content: center;
     transition: transform 0.3s ease;
     z-index: 1000;
     display: flex;
@@ -95,11 +99,13 @@ section h1 {
 
 /* Barre de navigation */
 nav {
-    background-color: rgba(255, 255, 255, 0.742);
-    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);    width: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
     width: 100%;
-    padding-inline: clamp(3vw, 5vw, 8vw);
-    z-index: 1000;
+    padding-block: var(--space-2);
+    padding-inline: clamp(2vw, 5vw, 6vw);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);    z-index: 1000;
     max-height: clamp(20vh, 40vh, 55vh);
 }
 
@@ -108,7 +114,7 @@ nav .container {
   align-items: center;
   padding-block: var(--space-);
   gap: var(--space-5);
-  height: 90%;
+max-height: clamp(20vh, 30vh, 55vh);
 }
 
 /* Logo */
@@ -124,8 +130,8 @@ nav .container {
   justify-content: center;
   align-items: center;
   list-style: none;
-  gap: clamp(1rem, 3vw, 3rem);
-  flex-wrap: wrap;
+  gap: clamp(0.8rem, 2.5vw, 2rem);
+    flex-wrap: wrap;
 }
 
 
@@ -136,7 +142,7 @@ nav .container {
 }
 
 .nav-links li a {
-  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
   font-weight: 700;
   color: var(--dark-color);
   text-decoration: none;
@@ -165,8 +171,9 @@ nav .container {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%; /* juste en dessous du parent */
-  right: 0;
+  top: 120%; /* juste en dessous du parent */
+  right: auto;
+  left:0;
   background: white;
   box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.1);
   border-radius: 0.5rem;
@@ -211,8 +218,16 @@ nav .container {
 
 /* Section À propos */
 #about {
-  margin-top: clamp(22vh, 25vh, 30vh);
+  margin-top: clamp(18vh, 20vh, 25vh);
   background-color: white;
+}
+
+.hero {
+    margin: clamp(2rem, 3.5vw, 3.5rem) auto 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.9));
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(15,23,42,0.04);
 }
 
 .about-content {
@@ -297,6 +312,8 @@ nav .container {
   color: var(--dark-color);
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   transition: color 0.3s;
+  text-decoration:none;
+
 }
 
 .social-links a:hover { color: var(--primary-color); }
@@ -528,6 +545,10 @@ nav .container {
     color: var(--dark-color);
     }
 
+    nav {
+        padding-block: var(--space-1);
+    }
+
     .nav-links {
         display: none; /* masqué par défaut */
         flex-direction: column;
@@ -542,6 +563,8 @@ nav .container {
         background: var(--light-color);
         border-radius: 0.5rem;
         box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.1);
+        margin-top: var(--space-2);
+        gap: var(--space-1);
     }
     
 
@@ -553,6 +576,10 @@ nav .container {
         font-size: clamp(1rem, 4vw, 1.3rem);
         padding: var(--space-2) var(--space-3);
         width: 100%;
+    }
+
+    .logo img {
+        width: clamp(7rem, 40vw, 10rem);
     }
 
     .about-content { flex-direction: column; text-align: center; }
