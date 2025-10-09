@@ -1,4 +1,4 @@
-# 🌐 Portfolio — Raphaël DIEZ PECOSTE
+# 🌐 Portfolio — Raphael DIEZ PECOSTE
 
 Bienvenue sur mon portfolio personnel : [raphaeldp.github.io](https://raphaeldp.github.io)  
 Ce site présente mes projets, mon parcours et ma vision du développement Data & IA.
@@ -73,9 +73,10 @@ raphaeldp.github.io/
 
 ## 📬 Contact
 
-- **Email** : [raphael.diezpecoste@gmail.com](mailto:raphael.diezpecoste@gmail.com)  
-- **LinkedIn** : [linkedin.com/in/raphael-diez-pecoste](https://linkedin.com/in/raphael-diez-pecoste)  
+- **Email** : [raphael.diezpecoste.pro@gmail.com](mailto:raphael.diezpecoste.pro@gmail.com)  
+- **LinkedIn** : [linkedin.com/in/raphael-diez-pecoste](https://www.linkedin.com/in/raphael-diezpecoste/)
 - **GitHub** : [github.com/raphaeldp](https://github.com/raphaeldp)
+- **GitLab** : [gitlab.com/RaphaelDP](https://gitlab.com/RaphaelDP/)
 
 ---
 
