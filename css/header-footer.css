@@ -1,0 +1,168 @@
+/* En-tête*/
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding-top: var(--space-); /* To avoid overlap with fixed nav */
+    text-align: center;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height:var(----height-header);
+    padding-block: var(--space-3);
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+/* Quand le header est caché */
+header.hidden {
+    transform: translateY(-100%);
+}
+
+
+/* Pied de page */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: clamp(0.5rem, 1vw, 1rem) 0;
+    margin-top: clamp(1rem, 2vw, 2rem);
+}
+
+
+
+/* Parent du hamburger et du menu : sert de référence de position */
+.menu-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.8rem, 2.5vw, 2rem);
+  height: 100%;
+  width: 100%;
+}
+
+/* Barre de navigation */
+nav {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding-block: var(--space-2);
+    padding-inline: clamp(2vw, 5vw, 6vw);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    height: clamp(12vh, 15vh, 20vh); /* cohérent avec header */
+}
+
+nav .container {
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-2);
+    gap: var(--space-5);
+    height: 100%; 
+}
+
+/* Logo */
+.logo img {
+  display: block;
+  width: clamp(8rem, 18vh, 15rem);
+  height: clamp(6vh, 11vh, 12vh);
+}
+
+
+/* Liens nav */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: clamp(0.8rem, 2.5vw, 2rem);
+  flex-wrap: wrap;
+  height: 100%; 
+  overflow:initial;
+}
+
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    opacity: 1; /* effet "mise en avant" */
+    text-shadow: 0 0 1.5px currentColor;
+}
+
+.nav-links li a {
+  font-size: var(--font-size-base); /* clamp déjà défini */  font-weight: 700;
+  color: var(--dark-color);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  transition: color 0.3s, opacity 0.3s, text-shadow 0.3s;
+  opacity: 0.85;
+  width: 100%;
+}
+
+/* Survol des liens de navigation */
+.nav-links li a:hover {
+  color: #0077b6;
+  opacity: 1;
+  text-shadow: 0 0 0.2rem currentColor;
+}
+
+/* Style pour les liens actifs (optionnel) */
+.nav-links li a:active {
+    color: var(--success-color);
+}
+
+/* Style pour les liens de contact dans la navigation */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 120%; /* juste en dessous du parent */
+  right: auto;
+  left:0;
+  background: white;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+  list-style: none;
+  padding: var(--space-1) 0;
+  min-width: clamp(12rem, 25vw, 16rem);
+  z-index: 1000;
+}
+
+
+.dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  color: var(--dark-color);
+  font-size: var(--font-size-base);
+  text-decoration: none;
+}
+
+
+.dropdown-menu li a:hover {
+  background: var(--light-color);
+  color: var(--primary-color);
+}
+
+/* Afficher au survol */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  cursor: pointer;
+  color: var(--dark-color);
+  position: relative;
+}
+

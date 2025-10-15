@@ -1,0 +1,23 @@
+body {
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: #f9f9f9;
+  padding: clamp(3vw, 6vw, 8vw);
+  padding-top: var(--height-header);
+  min-width: 320px;
+}
+
+section h1, section h2 {
+    text-align: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.container {
+    margin: 0 auto;
+    padding-block: clamp(1rem, 2vw, 2rem);
+    align-content: center;
+    width: 100%;
+}

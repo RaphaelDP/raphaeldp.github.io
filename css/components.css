@@ -1,0 +1,62 @@
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+/* Commun primary et secondary*/
+.btn-primary,
+.btn-secondary {
+  padding: var(--space-2) var(--space-3);
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: var(--font-size-base);
+}
+
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover { background-color: var(--secondary-color); }
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 0.125rem solid var(--primary-color);
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover { background-color: var(--primary-color); color: white; }
+
+.social-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.social-links a {
+  color: var(--dark-color);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  transition: color 0.3s;
+  text-decoration:none;
+
+}
+
+.social-links a:hover { color: var(--primary-color); }
+
+
+.availability {
+    margin-bottom: 1rem;
+}
+
+.available-badge {
+  background-color: #e8f5e9;
+  color: #2ecc71;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 2rem;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  font-weight: 700;
+}

@@ -1,0 +1,91 @@
+/* --- Styles de base pour l'arborescence --- */
+.file-tree, .file-tree ul {
+  list-style: none;
+  padding-left: 0.75rem;
+  margin: 0;
+}
+
+.file-tree {
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+.tree-item {
+  margin: 0.2rem 0;
+}
+
+.tree-toggle {
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.tree-toggle:hover {
+  color: #0077b6; /* bleu léger au survol */
+}
+
+.tree-folder::before {
+  content: "📂 ";
+}
+
+.tree-file::before {
+  content: "📄 ";
+}
+
+.tree-children {
+  display: none;
+  margin-left: 1rem;
+  border-left: 1px dashed #ddd;
+  padding-left: 0.5rem;
+}
+
+.tree-open > .tree-children {
+  display: block;
+}
+
+/* --- Bulle contextuelle (tooltip-like) --- */
+.file-bubble {
+  position: absolute;
+  background: #fff;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.6rem;
+  padding: 1rem 1.4rem;
+  box-shadow: 0 0.8rem 1.6rem rgba(0,0,0,0.25);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 40vw;   /* largeur max relative à la fenêtre */
+  z-index: 3000;
+
+  /* apparition en fondu + slide depuis la gauche */
+  opacity: 0;
+  transform: translateX(3rem) scale(0.95);
+  animation: bubbleFadeInRight 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Flèche à gauche de la bulle, centrée verticalement */
+.file-bubble::after {
+  content: "";
+  position: absolute;
+  top: 50%;              /* milieu vertical de la bulle */
+  left: -0.8rem;         /* sort du côté gauche */
+  transform: translateY(-50%); /* recentre la flèche sur le milieu */
+  border-width: 0.6rem;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+  filter: drop-shadow(-0.1rem 0 0.1rem rgba(0,0,0,0.15));
+}
+
+
+@keyframes bubbleFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(0) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(5rem) scale(1);
+  }
+}
