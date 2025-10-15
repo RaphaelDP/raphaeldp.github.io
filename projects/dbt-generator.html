@@ -31,58 +31,42 @@
     <script src="../js/breadcrumb.js" defer></script>
 
     <!-- Contenu principal -->
-    <main class="project-detail" style="padding-block: clamp(3vh, 4.5vh, 6vh)">
-      <div
-        class="container"
-        style="max-width: clamp(60ch, 75vw, 1200px); margin-inline: auto"
-      >
+    <main class="project-detail">
+      <div class="container" style="color: blue">
         <!-- Hero 
-      <header class="hero project-hero" style="padding: clamp(2vh, 3.5vh, 4.5vh);">
-        <div style="display:flex; gap:2%; align-items:center; flex-wrap:wrap;">
-          <div style="flex: 1 1 60%;">
-            <h1 style="font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin-bottom: 0.6rem;">
+      <header class="hero project-hero" >
+        <div >
+          <div >
+            <h1 >
               Générateur automatique de projets <strong>dbt</strong>
             </h1>
-            <p style="font-size: var(--font-size-base); margin-bottom: 0.8rem;">
+            <p >
               Outil qui transforme une spécification métier (XLSX/CSV) et une description en langage naturel
               en un projet DBT complet et prêt à l'emploi. Orchestration via <strong>LangGraph</strong>, LLM via
               <strong>Groq</strong> et intégration Snowflake.
             </p>
 
             <div class="cta-buttons">
-              <a class="btn-primary" href="streamlit:run app.py" style="display:inline-block;">Lancer Streamlit</a>
+              <a class="btn-primary" href="streamlit:run app.py" >Lancer Streamlit</a>
               <a class="btn-secondary" href="../docs/Documentation%20(4).pdf" download> Télécharger la documentation (PDF)</a>
             </div>
           </div>
 
-          <div style="flex: 1 1 35%; display:flex; justify-content:center;">
-            <figure style="width:100%; max-width:28vw;">
+          <div >
+            <figure >
               <img src="../assets/images/dbt-generator-streamlit.png"
                    alt="Capture interface Streamlit"
-                   style="width:100%; height:100%; object-fit:cover; border-radius:0.5rem; box-shadow:0 6px 24px rgba(0,0,0,0.08);" />
-              <figcaption style="font-size:0.85rem; color:var(--medium-light-color); margin-top:0.4rem;">Interface Streamlit — suivi en temps réel</figcaption>
+                    />
+              <figcaption >Interface Streamlit — suivi en temps réel</figcaption>
             </figure>
           </div>
         </div>
       </header>
       -->
         <!-- Bloc description -->
-        <section
-          class="project-description timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh)"
-        >
-          <h2
-            style="
-              font-size: clamp(1.2rem, 2.6vw, 1.6rem);
-              margin-bottom: 0.6rem;
-            "
-          >
-            Description synthétique
-          </h2>
-          <div
-            class="project-description__body"
-            style="font-size: var(--font-size-base)"
-          >
+        <section class="project-description timeline-item">
+          <h2>Description synthétique</h2>
+          <div class="project-description__body">
             <p>
               Le générateur automatise la création d'un projet DBT (staging →
               intermediate → marts) à partir d’un fichier de spécification et
@@ -96,19 +80,10 @@
         </section>
 
         <!-- Technical stack -->
-        <section
-          class="project-technical-stack timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh); display: flex; gap: 2%"
-        >
-          <div style="flex: 0 0 45%">
-            <h3 style="margin-bottom: 0.6rem">Stack technique</h3>
-            <ul
-              style="
-                font-size: var(--font-size-base);
-                list-style: disc;
-                margin-left: 1.25rem;
-              "
-            >
+        <section class="project-technical-stack timeline-item">
+          <div>
+            <h3>Stack technique</h3>
+            <ul>
               <li>Python 3.12+, dbt-core</li>
               <li>LangGraph (orchestration)</li>
               <li>Groq (LLM) — modèle configurable via <code>.env</code></li>
@@ -117,20 +92,15 @@
             </ul>
           </div>
 
-          <div style="flex: 1 1 50%">
-            <h3 style="margin-bottom: 0.6rem">Fichiers clefs</h3>
-            <p style="font-size: var(--font-size-base); margin-bottom: 0.4rem">
+          <div>
+            <h3>Fichiers clefs</h3>
+            <p>
               Le projet est organisé de manière modulaire :
               <code>src/core</code> (logique), <code>src/graph</code> (nœuds &
               arêtes), <code>formats/prompts</code> (templates jinja2),
               <code>inputs/</code> et <code>outputs/</code>.
             </p>
-            <a
-              class="btn-secondary"
-              href="../README.md"
-              style="display: inline-block; margin-top: 0.6rem"
-              >Voir README complet</a
-            >
+            <a class="btn-secondary" href="../README.md">Voir README complet</a>
           </div>
         </section>
 
@@ -206,16 +176,7 @@
           </p>
 
           <h3>Structure du State</h3>
-          <pre
-            style="
-              background: #0f1724;
-              color: #e6eef8;
-              padding: 1rem;
-              border-radius: 0.5rem;
-              overflow: auto;
-              font-size: 0.9rem;
-            "
-          >
+          <pre>
                 from typing import List, Dict, Any
                 from typing_extensions import TypedDict
 
@@ -244,7 +205,7 @@
                     update_graph_status: str
           </pre>
 
-          <p style="font-size: var(--font-size-base)">
+          <p>
             Cette structure normalisée permet de centraliser toutes les données
             de contexte (spécification, plan, fichiers générés, etc.) et de
             passer proprement les informations entre nœuds. Cela facilite aussi
@@ -254,32 +215,17 @@
         </section>
 
         <!-- Workflow / Graph -->
-        <section
-          class="project-workflow timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh)"
-        >
-          <h2
-            style="
-              font-size: clamp(1.1rem, 2.4vw, 1.5rem);
-              margin-bottom: 0.5rem;
-            "
-          >
-            Flux d'exécution (vue globale)
-          </h2>
+        <section class="project-workflow timeline-item">
+          <h2>Flux d'exécution (vue globale)</h2>
 
           <!-- Visual placeholder (SVG) pour le graphe LangGraph -->
           <!-- Insérer capture d'écran -->
         </section>
 
         <!-- Snowflake ingestion details -->
-        <section
-          class="project-snowflake-params timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh)"
-        >
-          <h2 style="font-size: clamp(1.05rem, 2.2vw, 1.4rem)">
-            Ingestion des métadonnées — Snowflake
-          </h2>
-          <p style="font-size: var(--font-size-base); margin-bottom: 0.6rem">
+        <section class="project-snowflake-params timeline-item">
+          <h2>Ingestion des métadonnées — Snowflake</h2>
+          <p>
             Le pipeline peut connecter Snowflake pour extraire la liste des
             tables et des colonnes (nom, type data). Ces métadonnées sont
             injectées dans <code>state["expected_format"]["sources"]</code> et
@@ -287,68 +233,44 @@
             <code>schema.yml</code> conforme.
           </p>
 
-          <div style="display: flex; gap: 2%; flex-wrap: wrap">
-            <div style="flex: 1 1 48%">
+          <div>
+            <div>
               <h4>Paramètres Snowflake requis</h4>
-              <table
-                style="
-                  width: 100%;
-                  font-size: 0.95rem;
-                  border-collapse: collapse;
-                "
-              >
+              <table>
                 <tr>
-                  <th style="text-align: left; padding: 0.5rem; width: 40%">
-                    SNOWFLAKE_ACCOUNT
-                  </th>
-                  <td style="padding: 0.5rem">
+                  <th>SNOWFLAKE_ACCOUNT</th>
+                  <td>
                     Identifiant du compte (ex. <code>xy12345.eu-west-1</code>)
                   </td>
                 </tr>
                 <tr>
-                  <th style="text-align: left; padding: 0.5rem">
-                    SNOWFLAKE_USER
-                  </th>
-                  <td style="padding: 0.5rem">Utilisateur DBT</td>
+                  <th>SNOWFLAKE_USER</th>
+                  <td>Utilisateur DBT</td>
                 </tr>
                 <tr>
-                  <th style="text-align: left; padding: 0.5rem">
-                    SNOWFLAKE_PASSWORD
-                  </th>
-                  <td style="padding: 0.5rem">
-                    Mot de passe (masqué dans l'UI)
-                  </td>
+                  <th>SNOWFLAKE_PASSWORD</th>
+                  <td>Mot de passe (masqué dans l'UI)</td>
                 </tr>
                 <tr>
-                  <th style="text-align: left; padding: 0.5rem">
-                    SNOWFLAKE_ROLE
-                  </th>
-                  <td style="padding: 0.5rem">
-                    Rôle (ex. <code>SYSADMIN</code>)
-                  </td>
+                  <th>SNOWFLAKE_ROLE</th>
+                  <td>Rôle (ex. <code>SYSADMIN</code>)</td>
                 </tr>
                 <tr>
-                  <th style="text-align: left; padding: 0.5rem">
-                    SNOWFLAKE_WAREHOUSE
-                  </th>
-                  <td style="padding: 0.5rem">Entrepôt (compute)</td>
+                  <th>SNOWFLAKE_WAREHOUSE</th>
+                  <td>Entrepôt (compute)</td>
                 </tr>
                 <tr>
-                  <th style="text-align: left; padding: 0.5rem">
-                    SNOWFLAKE_DATABASE / SCHEMA
-                  </th>
-                  <td style="padding: 0.5rem">
+                  <th>SNOWFLAKE_DATABASE / SCHEMA</th>
+                  <td>
                     Base et schéma cibles (ex. <code>ANALYTICS_DB.PUBLIC</code>)
                   </td>
                 </tr>
               </table>
             </div>
 
-            <div style="flex: 1 1 48%">
+            <div>
               <h4>Comportement</h4>
-              <ul
-                style="font-size: var(--font-size-base); margin-left: 1.25rem"
-              >
+              <ul>
                 <li>
                   La connexion s’effectue via la librairie Snowflake Connector
                   (config dans <code>config/variables.py</code>).
@@ -380,7 +302,7 @@
           </p>
 
           <h3>Commandes principales</h3>
-          <ul style="margin-left: 1.25rem">
+          <ul>
             <li>
               <code>python main.py install</code> — crée un environnement
               virtuel et installe <code>requirements.txt</code>.
@@ -404,16 +326,7 @@
           </ul>
 
           <h3>Extrait : squelette d’un task (ex: task_run)</h3>
-          <pre
-            style="
-              background: #0f1724;
-              color: #e6eef8;
-              padding: 0.8rem;
-              border-radius: 0.5rem;
-              overflow: auto;
-              font-size: 0.9rem;
-            "
-          >
+          <pre>
       # src/core/tasks/task_run.py (schéma)
       def run_console():
           base_path = input("Base path: ")
@@ -432,7 +345,6 @@
             <img
               src="../docs/cli_tasks_sequence.png"
               alt="Séquence CLI → Tasks → pipeline"
-              style="width: 100%; border-radius: 0.5rem"
             />
             <figcaption>
               Flux d’appel : CLI → tâche → orchestration (generate_dbt_project).
@@ -515,7 +427,6 @@
               <img
                 src="../docs/snowflake_metadata_flow.png"
                 alt="Flow ingestion Snowflake"
-                style="width: 100%; border-radius: 0.5rem"
               />
               <figcaption>
                 Exemple d’export de métadonnées Snowflake (tables → colonnes →
@@ -548,11 +459,11 @@
                 models[], tests[], dependencies[]).
               </li>
             </ul>
-            <p style="color: var(--medium-light-color); font-size: 0.95rem">
+            <p>
               Note : le module gère les erreurs LLM (timeout, rate-limit, valeur
               non-json) et incrémente un compteur de retry.
             </p>
-            <p style="font-size: 0.95rem; color: var(--medium-light-color)">
+            <p>
               [insérer exemple : plan produit complet — voir
               <code>outputs/&lt;project&gt;/saved/saved_plan.json</code>]
             </p>
@@ -599,16 +510,7 @@
               contient fields requis (name, description, path, columns,
               dependencies, filetype).
             </p>
-            <pre
-              style="
-                background: #0f1724;
-                color: #e6eef8;
-                padding: 0.6rem;
-                border-radius: 0.4rem;
-                overflow: auto;
-                font-size: 0.86rem;
-              "
-            >
+            <pre>
 # Extrait d'un spec (simplifié)
 "models": {
   "models/staging/stg_expeditions": {
@@ -735,7 +637,7 @@
           </p>
 
           <h3>Comportement clé</h3>
-          <ul style="margin-left: 1.25rem">
+          <ul>
             <li>
               Logs affichés en temps réel dans Streamlit via la fonction
               <code>display_graph_and_logs_placeholders()</code>.
@@ -754,7 +656,6 @@
             <img
               src="../docs/logging_architecture.png"
               alt="Architecture logging"
-              style="width: 100%; border-radius: 0.5rem"
             />
             <figcaption>
               Schéma : flux des logs (Worker thread → InMemoryLogger → Streamlit
@@ -763,7 +664,7 @@
           </figure>
 
           <h3>Conseil pratique</h3>
-          <p style="color: var(--medium-light-color); font-size: 0.95rem">
+          <p>
             En environnement de production, envisager la redirection des
             fichiers de logs vers un stockage centralisé (ELK, CloudWatch) et
             augmenter la rotation des fichiers.
@@ -783,15 +684,7 @@
           </p>
 
           <h3>Exemple d’arborescence sauvegardée</h3>
-          <pre
-            style="
-              background: #f6f8fa;
-              padding: 0.6rem;
-              border-radius: 0.4rem;
-              overflow: auto;
-              font-size: 0.9rem;
-            "
-          >
+          <pre>
 outputs/
 └─ my_project/
    ├─ models/
@@ -827,7 +720,7 @@ outputs/
           </p>
 
           <h3>Bonnes pratiques</h3>
-          <ul style="margin-left: 1.25rem">
+          <ul>
             <li>
               Utiliser des comptes de service dédiés avec des rôles limités
               (minimum nécessaire).
@@ -843,7 +736,7 @@ outputs/
           </ul>
 
           <h3>Détails Snowflake</h3>
-          <p style="font-size: 0.95rem">
+          <p>
             Les paramètres à renseigner sont : <code>SNOWFLAKE_ACCOUNT</code>,
             <code>SNOWFLAKE_USER</code>, <code>SNOWFLAKE_PASSWORD</code>,
             <code>SNOWFLAKE_ROLE</code>, <code>SNOWFLAKE_WAREHOUSE</code>,
@@ -862,7 +755,7 @@ outputs/
             Le code est conçu pour être modulaire. Voici des axes d’amélioration
             faciles à implémenter :
           </p>
-          <ul style="margin-left: 1.25rem">
+          <ul>
             <li>
               <strong>Multi-marts</strong> : supporter plusieurs marts dans le
               même plan (boucler sur plusieurs dossiers / domaines).
@@ -881,36 +774,19 @@ outputs/
               <code>plan</code> (schéma JSON) et fixtures pour les prompts.
             </li>
           </ul>
-          <p style="color: var(--medium-light-color); font-size: 0.95rem">
-            [insérer suggestions graphiques / diagrammes d’extension]
-          </p>
+          <p>[insérer suggestions graphiques / diagrammes d’extension]</p>
         </section>
 
         <!-- Example plan -->
-        <section
-          class="project-plan-example timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh)"
-        >
-          <h2 style="font-size: clamp(1.05rem, 2.2vw, 1.4rem)">
-            Exemple (extrait) de plan produit
-          </h2>
+        <section class="project-plan-example timeline-item">
+          <h2>Exemple (extrait) de plan produit</h2>
 
-          <p style="font-size: var(--font-size-base)">
+          <p>
             Ci-dessous un extrait abrégé du JSON produit par le LLM et stocké
             dans <code>state["plan"]</code> :
           </p>
 
-          <pre
-            style="
-              background: #0f1724;
-              color: #e6eef8;
-              padding: 1rem;
-              border-radius: 0.5rem;
-              overflow: auto;
-              font-size: 0.92rem;
-              max-height: clamp(12vh, 28vh, 40vh);
-            "
-          >
+          <pre>
 {
   "models": [
     {
@@ -943,103 +819,53 @@ outputs/
         </pre
           >
 
-          <p
-            style="
-              font-size: 0.95rem;
-              color: var(--medium-light-color);
-              margin-top: 0.8rem;
-            "
-          >
+          <p>
             [insérer exemple complet : plan produit] — le plan réel sauvegardé
             est plus verbeux (sources, tables, colonnes, chemins).
           </p>
         </section>
 
         <!-- Gallery & Downloads -->
-        <section
-          class="project-gallery timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh)"
-        >
-          <h2 style="font-size: clamp(1.05rem, 2.2vw, 1.4rem)">
-            Visuels & documentation
-          </h2>
+        <section class="project-gallery timeline-item">
+          <h2>Visuels & documentation</h2>
 
-          <div style="display: flex; gap: 2%; flex-wrap: wrap">
-            <figure style="flex: 1 1 48%; min-width: 220px">
-              <img
-                src="../docs/graphViz.drawio.png"
-                alt="Graphe LangGraph"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  border-radius: 0.5rem;
-                "
-              />
-              <figcaption
-                style="
-                  font-size: 0.85rem;
-                  color: var(--medium-light-color);
-                  margin-top: 0.4rem;
-                "
-              >
+          <div>
+            <figure>
+              <img src="../docs/graphViz.drawio.png" alt="Graphe LangGraph" />
+              <figcaption>
                 Schéma du graphe LangGraph – orchestration du pipeline IA
               </figcaption>
             </figure>
 
-            <figure style="flex: 1 1 48%; min-width: 220px">
+            <figure>
               <img
                 src="../docs/Orchestrenom.drawio.png"
                 alt="Architecture du pipeline complet"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  border-radius: 0.5rem;
-                "
               />
-              <figcaption
-                style="
-                  font-size: 0.85rem;
-                  color: var(--medium-light-color);
-                  margin-top: 0.4rem;
-                "
-              >
+              <figcaption>
                 Architecture globale : modules, nœuds et connexions du système
               </figcaption>
             </figure>
 
-            <figure style="flex: 1 1 48%; min-width: 220px">
+            <figure>
               <img
                 src="../docs/exemple_specs.png"
                 alt="Exemple de spécification Excel"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  border-radius: 0.5rem;
-                "
               />
-              <figcaption
-                style="
-                  font-size: 0.85rem;
-                  color: var(--medium-light-color);
-                  margin-top: 0.4rem;
-                "
-              >
+              <figcaption>
                 Exemple de fichier de spécification Excel utilisé pour
                 l’ingestion
               </figcaption>
             </figure>
           </div>
 
-          <div style="margin-top: clamp(1rem, 3vw, 2rem); text-align: center">
+          <div>
             <a
               href="../docs/Documentation%20(4).pdf"
               class="btn-primary"
               download
             >
-              <i class="fa-solid fa-file-pdf" style="margin-right: 0.4rem"></i>
+              <i class="fa-solid fa-file-pdf"></i>
               Télécharger la documentation complète (PDF)
             </a>
           </div>
@@ -1065,19 +891,14 @@ outputs/
         </section>
 
         <!-- Learnings -->
-        <section
-          class="project-learnings timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh)"
-        >
-          <h2 style="font-size: clamp(1.05rem, 2.2vw, 1.4rem)">
-            Compétences & enseignements
-          </h2>
-          <p style="font-size: var(--font-size-base)">
+        <section class="project-learnings timeline-item">
+          <h2>Compétences & enseignements</h2>
+          <p>
             Ce projet m’a permis d’approfondir la conception d’architectures de
             données intelligentes et la génération de code automatisée. J’ai
             exploré en profondeur :
           </p>
-          <ul style="margin-left: 1.25rem; font-size: var(--font-size-base)">
+          <ul>
             <li>
               L’orchestration de workflows complexes avec
               <strong>LangGraph</strong>.
@@ -1099,7 +920,7 @@ outputs/
               avec logs en temps réel.
             </li>
           </ul>
-          <p style="margin-top: 0.8rem">
+          <p>
             Au-delà de la technique, ce projet démontre comment l’IA peut
             accélérer le développement de pipelines de données robustes et
             documentés.
@@ -1107,18 +928,9 @@ outputs/
         </section>
 
         <!-- Links -->
-        <section
-          class="project-links timeline-item"
-          style="margin-top: clamp(2vh, 3.5vh, 4.5vh)"
-        >
-          <h2 style="font-size: clamp(1.05rem, 2.2vw, 1.4rem)">Liens utiles</h2>
-          <ul
-            style="
-              list-style: none;
-              padding-left: 0;
-              font-size: var(--font-size-base);
-            "
-          >
+        <section class="project-links timeline-item">
+          <h2>Liens utiles</h2>
+          <ul>
             <li>
               <a
                 href="https://github.com/username/dbt-project-generator"
