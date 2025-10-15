@@ -2,3 +2,5 @@ cv.tex
 node_modules/
 package.json
 package-lock.json
+.htmlhintrc
+.stylelintrc

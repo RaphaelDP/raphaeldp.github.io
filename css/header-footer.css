@@ -1,4 +1,4 @@
-/* En-tête*/
+/* En-tête */
 header {
   background: linear-gradient(
     135deg,
@@ -6,13 +6,13 @@ header {
     var(--secondary-color)
   );
   color: white;
-  padding-top: var(--space-); /* To avoid overlap with fixed nav */
+  padding-top: var(--space-1); /* To avoid overlap with fixed nav */
   text-align: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(----height-header);
+  height: var(--height-header);
   padding-block: var(--space-3);
   flex-direction: column;
   justify-content: center;
@@ -49,13 +49,13 @@ footer {
 
 /* Barre de navigation */
 nav {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgb(255 255 255 / 85%);
   backdrop-filter: blur(6px);
-  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.625rem rgb(0 0 0 / 10%);
   width: 100%;
   padding-block: var(--space-2);
   padding-inline: clamp(2vw, 5vw, 6vw);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
   z-index: 1000;
   height: clamp(12vh, 15vh, 20vh); /* cohérent avec header */
 }
@@ -87,12 +87,6 @@ nav .container {
   overflow: initial;
 }
 
-.nav-links a:hover {
-  color: var(--primary-color);
-  opacity: 1; /* effet "mise en avant" */
-  text-shadow: 0 0 1.5px currentColor;
-}
-
 .nav-links li a {
   font-size: var(--font-size-base); /* clamp déjà défini */
   font-weight: 700;
@@ -107,18 +101,6 @@ nav .container {
   width: 100%;
 }
 
-/* Survol des liens de navigation */
-.nav-links li a:hover {
-  color: #0077b6;
-  opacity: 1;
-  text-shadow: 0 0 0.2rem currentColor;
-}
-
-/* Style pour les liens actifs (optionnel) */
-.nav-links li a:active {
-  color: var(--success-color);
-}
-
 /* Style pour les liens de contact dans la navigation */
 .dropdown {
   position: relative;
@@ -131,7 +113,7 @@ nav .container {
   right: auto;
   left: 0;
   background: white;
-  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.3125rem 0.9375rem rgb(0 0 0 / 10%);
   border-radius: 0.5rem;
   list-style: none;
   padding: var(--space-1) 0;
@@ -149,9 +131,27 @@ nav .container {
   text-decoration: none;
 }
 
+.nav-links a:hover {
+  color: var(--primary-color);
+  opacity: 1; /* effet "mise en avant" */
+  text-shadow: 0 0 1.5px currentcolor;
+}
+
+/* Survol des liens de navigation */
+.nav-links li a:hover {
+  color: #0077b6;
+  opacity: 1;
+  text-shadow: 0 0 0.2rem currentcolor;
+}
+
 .dropdown-menu li a:hover {
   background: var(--light-color);
   color: var(--primary-color);
+}
+
+/* Style pour les liens actifs (optionnel) */
+.nav-links li a:active {
+  color: var(--success-color);
 }
 
 /* Afficher au survol */
