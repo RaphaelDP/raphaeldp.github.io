@@ -34,35 +34,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     lastScroll = currentScroll;
   });
 
-    // Si la souris touche le haut de la fenêtre → montrer le header
-    document.addEventListener("mousemove", (e) => {
-      if (e.clientY < 50) {
-        header.classList.remove("hidden");
-      }
+  // Si la souris touche le haut de la fenêtre → montrer le header
+  document.addEventListener("mousemove", (e) => {
+    if (e.clientY < 50) {
+      header.classList.remove("hidden");
+    }
+  });
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  // Toggle au clic sur le hamburger
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation(); // évite de déclencher le "click ailleurs"
+    navLinks.classList.toggle("active");
+  });
+
+  // Fermer si clic ailleurs
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove("active");
+    }
+  });
+
+  // Fermer si on clique sur un lien
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
     });
-
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    // Toggle au clic sur le hamburger
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation(); // évite de déclencher le "click ailleurs"
-      navLinks.classList.toggle("active");
-    });
-
-    // Fermer si clic ailleurs
-    document.addEventListener("click", (e) => {
-      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-        navLinks.classList.remove("active");
-      }
-    });
-
-    // Fermer si on clique sur un lien
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-      });
-    });
-
+  });
 });
-

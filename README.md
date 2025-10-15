@@ -17,6 +17,7 @@ Toujours curieux, j’aime apprendre de nouvelles technologies pour **avoir plus
 ---
 
 ## 🚀 Contenu du site
+
 ```bash
 raphaeldp.github.io/
 ├── assets
@@ -47,23 +48,22 @@ raphaeldp.github.io/
 
 ```
 
-
 ---
 
 ## 💡 Fonctionnalités principales
 
-- **Design responsive** — adapté aux écrans mobiles, tablettes et desktop.  
-- **Sections animées** — apparition fluide lors du défilement.  
-- **Header / Footer communs** chargés dynamiquement (pas de duplication HTML).  
-- **Breadcrumb** dynamique pour une meilleure navigation.  
-- **Lightbox** pour visualiser les images en plein écran.  
+- **Design responsive** — adapté aux écrans mobiles, tablettes et desktop.
+- **Sections animées** — apparition fluide lors du défilement.
+- **Header / Footer communs** chargés dynamiquement (pas de duplication HTML).
+- **Breadcrumb** dynamique pour une meilleure navigation.
+- **Lightbox** pour visualiser les images en plein écran.
 - **Structure modulaire** — chaque projet est isolé dans sa propre page.
 
 ---
 
 ## 🛠️ Technologies utilisées
 
-- **HTML5 / CSS3 / JavaScript (Vanilla)**  
+- **HTML5 / CSS3 / JavaScript (Vanilla)**
 - **GitHub Pages** (hébergement statique)
 - **Responsive Design** (Flexbox / Grid)
 - **Animations CSS / JS**
@@ -73,7 +73,7 @@ raphaeldp.github.io/
 
 ## 📬 Contact
 
-- **Email** : [raphael.diezpecoste.pro@gmail.com](mailto:raphael.diezpecoste.pro@gmail.com)  
+- **Email** : [raphael.diezpecoste.pro@gmail.com](mailto:raphael.diezpecoste.pro@gmail.com)
 - **LinkedIn** : [linkedin.com/in/raphael-diez-pecoste](https://www.linkedin.com/in/raphael-diezpecoste/)
 - **GitHub** : [github.com/raphaeldp](https://github.com/raphaeldp)
 - **GitLab** : [gitlab.com/RaphaelDP](https://gitlab.com/RaphaelDP/)
@@ -83,6 +83,7 @@ raphaeldp.github.io/
 ## 🧭 Objectif du portfolio
 
 Ce site a été conçu pour :
+
 - Présenter mes projets personnels et professionnels
 - Illustrer ma capacité à **concevoir des systèmes clairs et maintenables**
 - Mettre en avant une approche centrée sur la **qualité du code** et la **compréhension complète des solutions**
@@ -90,4 +91,3 @@ Ce site a été conçu pour :
 ---
 
 > 💬 _“J’aime les défis techniques, mais aussi la satisfaction simple d’un code propre et élégant.”_
-

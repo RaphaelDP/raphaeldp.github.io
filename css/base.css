@@ -7,17 +7,18 @@ body {
   min-width: 320px;
 }
 
-section h1, section h2 {
-    text-align: center;
-    margin: 0 auto 1rem;
-    font-size: 2rem;
-    color: var(--secondary-color);
-    padding-bottom: 0.5rem;
+section h1,
+section h2 {
+  text-align: center;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+  color: var(--secondary-color);
+  padding-bottom: 0.5rem;
 }
 
 .container {
-    margin: 0 auto;
-    padding-block: clamp(1rem, 2vw, 2rem);
-    align-content: center;
-    width: 100%;
+  margin: 0 auto;
+  padding-block: clamp(1rem, 2vw, 2rem);
+  align-content: center;
+  width: 100%;
 }

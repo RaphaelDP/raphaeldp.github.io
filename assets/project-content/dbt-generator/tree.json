@@ -1,9 +1,13 @@
 {
-"app.py": { "description": "Point d’entrée de l’application (CLI principale)" },
-"config": {
-  "css_variables.py": { "description": "Variables CSS pour la génération de thèmes" },
-  "variables.py": { "description": "Variables globales de configuration" }
-},
+  "app.py": {
+    "description": "Point d’entrée de l’application (CLI principale)"
+  },
+  "config": {
+    "css_variables.py": {
+      "description": "Variables CSS pour la génération de thèmes"
+    },
+    "variables.py": { "description": "Variables globales de configuration" }
+  },
 
   "docs": {
     "doc.md": null,
@@ -24,7 +28,7 @@
     "Tableau_Spec.xlsx": null,
     "Test_Spécification_Jaffle_shop.xlsx": null
   },
-     "main.py": {
+  "main.py": {
     "description": "Point d’entrée principal du programme en mode CLI. Il orchestre les différentes tâches et sert d’interface directe en ligne de commande pour les utilisateurs avancés.\n\nTâches disponibles :\n- Install : permet l’installation des dépendances\n- Run : permet l’exécution de la pipeline sans interface GUI\n- Backup : permet de sauvegarder un projet particulier\n- Help : permet l’affichage d’une aide si besoin\n- Clean : permet le nettoyage des fichiers caches et des outputs qui ne sont plus nécessaires (attention à faire un backup avant !)"
   },
 

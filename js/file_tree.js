@@ -55,9 +55,9 @@ function buildTree(tree) {
       fileSpan.style.cursor = "pointer";
       li.appendChild(fileSpan);
 
-      const description =
-        isFileWithDesc ? (value.description || "Pas de description disponible.") :
-        "Pas de description disponible.";
+      const description = isFileWithDesc
+        ? value.description || "Pas de description disponible."
+        : "Pas de description disponible.";
 
       fileSpan.addEventListener("click", (e) => {
         console.log("clic sur", name); // debug
@@ -108,7 +108,8 @@ function showFileDescription(filename, description, event) {
       window.removeEventListener("resize", positionBubble);
     }
   };
-  setTimeout(() => { // éviter auto-fermeture immédiate
+  setTimeout(() => {
+    // éviter auto-fermeture immédiate
     document.addEventListener("click", closeBubble);
   }, 0);
 
@@ -136,7 +137,8 @@ function positionBubble() {
   const bubbleRect = currentBubble.getBoundingClientRect();
 
   // Centrer verticalement : milieu du fichier - moitié de la bulle
-  const top = rect.top + window.scrollY + (rect.height / 2) - (bubbleRect.height / 2);
+  const top =
+    rect.top + window.scrollY + rect.height / 2 - bubbleRect.height / 2;
   const left = rect.right + window.scrollX + 12; // décalage à droite
 
   currentBubble.style.top = `${top}px`;
@@ -148,8 +150,6 @@ function positionBubble() {
 function formatDescription(str) {
   return escapeHtml(str).replace(/\n/g, "<br>");
 }
-
-
 
 /**
  * Minimal HTML escape to prevent accidental HTML injection in descriptions.

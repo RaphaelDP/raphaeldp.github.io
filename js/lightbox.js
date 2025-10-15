@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const img = document.createElement("img");
   lightbox.appendChild(img);
 
-  document.querySelectorAll(".project-gallery img, .project-thumbnail").forEach(thumbnail => {
-    thumbnail.addEventListener("click", () => {
-      img.src = thumbnail.src;
-      lightbox.classList.add("active");
+  document
+    .querySelectorAll(".project-gallery img, .project-thumbnail")
+    .forEach((thumbnail) => {
+      thumbnail.addEventListener("click", () => {
+        img.src = thumbnail.src;
+        lightbox.classList.add("active");
+      });
     });
-  });
 
   lightbox.addEventListener("click", () => {
     lightbox.classList.remove("active");
