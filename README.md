@@ -2,6 +2,9 @@
 
 Bienvenue sur mon portfolio personnel : [raphaeldp.github.io](https://raphaeldp.github.io)  
 Ce site présente mes projets, mon parcours et ma vision du développement Data & IA.
+![visitors](https://visitor-badge.glitch.me/badge?page_id=raphaeldp.github.io)
+![visitors](https://countapi.xyz/hit/raphaeldp.github.io/visits)
+![visitors](https://img.shields.io/badge/dynamic/json?color=blue&label=visitors&query=value&url=https://api.countapi.xyz/hit/raphaeldp.github.io/visits)
 
 ---
 
