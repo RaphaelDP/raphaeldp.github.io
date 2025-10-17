@@ -1,92 +1,145 @@
-/* ===============================
-   STYLES DES PAGES DE PROJET (FLUIDE)
-   =============================== */
+/* =========================================
+   PAGE : projects
+   ========================================= */
 
+/* Conteneur global */
 .project-detail {
-  background-color: white;
-  padding-block: clamp(2rem, 4vw, 4rem);
-  margin-block: clamp(1rem, 3vw, 2rem);
+  background: #fff;
+  padding-block: clamp(2rem, 4vw, 5rem);
   border-radius: 0.75rem;
   box-shadow: 0 0.6rem 2rem rgb(0 0 0 / 5%);
+  overflow-x: hidden;
 }
 
-/* Conteneur principal */
 .project-detail .container {
-  width: clamp(85%, 90vw, 900px);
+  width: clamp(85%, 90vw, 1100px);
   margin-inline: auto;
   padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
-/* Titres */
+/* Titres principaux */
 .project-detail h2 {
-  text-align: center;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   color: var(--secondary-color);
+  text-align: left;
   margin-bottom: clamp(1rem, 2vw, 1.5rem);
-  width: 100%;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.3rem;
 }
 
 .project-detail h3 {
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
-  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   color: var(--primary-color);
-  border-left: 0.4rem solid var(--primary-color);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-left: 0.35rem solid var(--primary-color);
   padding-left: 2%;
-  width: 98%;
 }
 
-/* Paragraphes */
+/* Paragraphes et texte */
 .project-detail p {
-  width: 100%;
-  margin-bottom: clamp(1rem, 2.5vw, 2rem);
-  line-height: 1.7;
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: 1.75;
+  color: var(--text-color, #333);
+  margin-bottom: clamp(1rem, 2.5vw, 2rem);
 }
 
-/* Listes */
-.project-detail ol,
-.project-detail ul {
+
+/* ===============================
+   SECTIONS COMMUNES (style carte)
+   =============================== */
+
+.project-detail section {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.625rem;
+  padding: clamp(1rem, 3vw, 1.8rem);
+  box-shadow: 0 0.3125rem 0.9375rem rgb(0 0 0 / 8%);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-detail section:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 12%);
+}
+
+/* ===============================
+   Listes
+   =============================== */
+.project-detail ul,
+.project-detail ol {
   margin-left: clamp(1rem, 3vw, 2rem);
-  margin-bottom: clamp(1rem, 2.5vw, 2rem);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
   width: 95%;
 }
 
 .project-detail li {
-  margin-bottom: 1%;
+  margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 
-/* Liens */
-.project-detail a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
+/* ===============================
+   Code & Préformaté
+   =============================== */
 
-/* Code inline */
 .project-detail code {
-  background: var(--light-color);
-  color: var(--secondary-color);
-  padding: 0.2em 0.5em;
+  background-color: var(--light-color, #f5f5f5);
+  color: var(--secondary-color, #444);
+  padding: 0.25em 0.5em;
   border-radius: 0.4em;
-  font-size: 90%;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9em;
 }
 
-/* Galerie d’images */
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(clamp(220px, 40vw, 350px), 1fr)
-  );
-  gap: clamp(1rem, 2vw, 2rem);
-  margin-block: clamp(1.5rem, 3vw, 3rem);
-  width: 100%;
+.project-detail pre {
+  background-color: #0f1724;
+  color: #e6eef8;
+  padding: clamp(0.8rem, 2vw, 1.2rem);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 15%);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
 }
 
-.project-gallery img {
+/* ===============================
+   Tableaux
+   =============================== */
+.project-detail table {
   width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-block: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid #e2e2e2;
+}
+
+.project-detail th,
+.project-detail td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.project-detail th {
+  background-color: var(--light-color, #f6f6f6);
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+/* ===============================
+   Figures et galeries
+   =============================== */
+figure {
+  margin-block: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 10%);
@@ -95,115 +148,91 @@
     box-shadow 0.3s ease;
 }
 
-.project-gallery img:hover {
-  transform: scale(1.03);
+figure img:hover {
+  transform: scale(1.02);
   box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 15%);
 }
 
-/* Espacement pour les sous-sections */
-.project-detail h3::before {
-  margin-right: 0.3em;
+figure figcaption {
+  font-size: 0.9rem;
+  color: var(--medium-light-color, #666);
+  margin-top: 0.5rem;
+}
+
+
+
+/* ===============================
+   Galerie (3 images flex)
+   =============================== */
+.project-gallery > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  justify-content: center;
+}
+
+.project-gallery figure {
+  flex: 1 1 30%;
+  min-width: 220px;
 }
 
 /* ===============================
-   BLOCS RÉUTILISABLES DE PAGE PROJET
+   Disposition spécifique de sections
    =============================== */
 
-/* Style commun à toutes les sections projet */
-.project-section {
-  position: relative;
-  margin-bottom: clamp(1rem, 4vw, 2rem);
-  padding: clamp(1rem, 3vw, 1.5rem);
-  background-color: white;
-  border-radius: 0.625rem;
-  box-shadow: 0 0.3125rem 0.9375rem rgb(0 0 0 / 10%);
-  width: 100%;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+/* Bloc technique */
+.project-technical-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3%;
 }
 
-/* Titres à l’intérieur des blocs */
-.project-section h3 {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  color: var(--primary-color);
-  margin-bottom: clamp(0.5rem, 1vw, 1rem);
-  border-left: 0.4rem solid var(--primary-color);
-  padding-left: 2%;
+.project-technical-stack > div {
+  flex: 1 1 48%;
 }
 
-/* Paragraphes à l’intérieur */
-.project-section p {
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  line-height: 1.7;
-  margin-bottom: 1%;
-  color: var(--text-color, #333);
+/* Bloc Snowflake paramètres */
+.project-snowflake-params > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
 }
 
-/* Listes */
-.project-section ul,
-.project-section ol {
-  margin-left: 5%;
-  margin-bottom: 3%;
+.project-snowflake-params > div > div {
+  flex: 1 1 48%;
+  background-color: var(--light-color, #fafafa);
+  border-radius: 0.5rem;
+  padding: clamp(0.8rem, 2vw, 1rem);
 }
 
-.project-section li {
-  margin-bottom: 1%;
+/* ===============================
+   Arborescence & arbres JSON
+   =============================== */
+#file-tree {
+  background-color: #fafafa;
+  border-radius: 0.5rem;
+  padding: clamp(0.8rem, 2vw, 1.2rem);
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
 }
 
-/* Code / lien */
-.project-section code {
-  background-color: var(--light-color, #f5f5f5);
-  padding: 0.25em 0.5em;
-  border-radius: 0.3em;
-  font-size: 90%;
-  color: var(--secondary-color);
-}
-
-.project-section a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-/* Effet hover léger pour dynamiser */
-
-.project-detail a:hover {
-  color: var(--highlight-color);
-  text-decoration: underline;
-}
-
-.project-section:hover {
-  transform: translateY(-0.25rem);
-  box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 15%);
-}
-
-.project-section a:hover {
-  color: var(--highlight-color);
-  text-decoration: underline;
-}
-
-/* Responsive mobile/tablette */
-@media (width <= 768px) {
-  .project-detail .container {
-    width: 92%;
-    padding-inline: clamp(0.5rem, 2vw, 1rem);
+/* ===============================
+   Responsive
+   =============================== */
+@media (width <= 900px) {
+  .project-technical-stack > div,
+  .project-snowflake-params > div > div {
+    flex: 1 1 100%;
   }
 
-  .project-gallery {
-    grid-template-columns: 1fr;
+  figure img {
+    max-width: 100%;
   }
 
-  .project-detail h2 {
-    font-size: clamp(1.3rem, 4vw, 1.8rem);
-  }
-
-  .project-detail h3 {
-    font-size: clamp(1rem, 3vw, 1.3rem);
-  }
-
-  .project-section {
-    padding: clamp(0.75rem, 4vw, 1rem);
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
   }
 }

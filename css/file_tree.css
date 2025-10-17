@@ -1,4 +1,25 @@
-/* --- Styles de base pour l'arborescence --- */
+/* =========================================================
+   ARBORESCENCE DE PROJET (FILE TREE)
+   Cohérente avec project-details.css
+   ========================================================= */
+
+/* --- Conteneur global de l’arborescence --- */
+#file-tree {
+  background-color: #fafafa;
+  border-radius: 0.6rem;
+  padding: clamp(0.8rem, 2vw, 1.5rem);
+  font-family: "Fira Code", monospace;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  line-height: 1.5;
+  margin-inline: auto; /* Centrage horizontal */
+  width: clamp(60%, 80vw, 700px); /* Largeur fluide centrée */
+  overflow-x: auto;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  text-align: left; /* Conserve l’indentation visuelle */
+}
+
+/* --- Liste principale et sous-listes --- */
 .file-tree,
 .file-tree ul {
   list-style: none;
@@ -6,36 +27,43 @@
   margin: 0;
 }
 
+/* --- Élément racine de l’arborescence --- */
 .file-tree {
-  font-family: monospace;
-  font-size: 0.9rem;
+  font-family: inherit;
   margin-top: 1rem;
   line-height: 1.4;
 }
 
+/* --- Items de l’arbre --- */
 .tree-item {
   margin: 0.2rem 0;
+  position: relative;
 }
 
-.tree-toggle {
-  cursor: pointer;
-  user-select: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.tree-toggle:hover {
-  color: #0077b6; /* bleu léger au survol */
-}
-
+/* --- Dossiers et fichiers (icônes) --- */
 .tree-folder::before {
   content: "📂 ";
 }
 
 .tree-file::before {
   content: "📄 ";
+  opacity: 0.85;
 }
 
+/* --- Dossiers extensibles (toggle) --- */
+.tree-toggle {
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.25s ease;
+}
+
+.tree-toggle:hover {
+  color: var(--primary-color, #0077b6);
+}
+
+/* --- Sous-dossiers (niveaux inférieurs) --- */
 .tree-children {
   display: none;
   margin-left: 1rem;
@@ -47,38 +75,65 @@
   display: block;
 }
 
-/* --- Bulle contextuelle (tooltip-like) --- */
+/* --- Ligne de liaison verticale douce --- */
+.tree-children::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed #ddd;
+  opacity: 0.6;
+}
+
+/* --- Apparence du texte --- */
+.file-tree span,
+.file-tree li {
+  color: #2f2f2f;
+}
+
+/* --- Effet léger au survol d’un item --- */
+.tree-item:hover {
+  background-color: rgba(0, 119, 182, 0.05);
+  border-radius: 0.25rem;
+}
+
+/* =========================================================
+   INFOBULLE (BUBBLE)
+   ========================================================= */
 .file-bubble {
   position: absolute;
   background: #fff;
-  border: 0.1rem solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 0.6rem;
   padding: 1rem 1.4rem;
   box-shadow: 0 0.8rem 1.6rem rgb(0 0 0 / 25%);
   font-size: 0.95rem;
   line-height: 1.5;
-  max-width: 40vw; /* largeur max relative à la fenêtre */
+  max-width: 40vw;
   z-index: 3000;
 
-  /* apparition en fondu + slide depuis la gauche */
+  /* Apparition animée */
   opacity: 0;
   transform: translateX(3rem) scale(0.95);
-  animation: bubble-fade-in-right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  animation: bubble-fade-in-right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)
+    forwards;
 }
 
-/* Flèche à gauche de la bulle, centrée verticalement */
+/* --- Petite flèche vers la gauche --- */
 .file-bubble::after {
   content: "";
   position: absolute;
-  top: 50%; /* milieu vertical de la bulle */
-  left: -0.8rem; /* sort du côté gauche */
-  transform: translateY(-50%); /* recentre la flèche sur le milieu */
+  top: 50%;
+  left: -0.8rem;
+  transform: translateY(-50%);
   border-width: 0.6rem;
   border-style: solid;
   border-color: transparent #fff transparent transparent;
   filter: drop-shadow(-0.1rem 0 0.1rem rgb(0 0 0 / 15%));
 }
 
+/* --- Animation d’apparition --- */
 @keyframes bubble-fade-in-right {
   from {
     opacity: 0;
@@ -88,5 +143,16 @@
   to {
     opacity: 1;
     transform: translateX(5rem) scale(1);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+  #file-tree {
+    width: 92%;
+    font-size: 0.85rem;
+    padding: clamp(0.6rem, 2vw, 1rem);
   }
 }

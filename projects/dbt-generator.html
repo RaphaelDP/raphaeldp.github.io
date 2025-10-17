@@ -33,38 +33,8 @@
     <!-- Contenu principal -->
     <main class="project-detail">
       <div class="container">
-        <!-- Hero 
-      <header class="hero project-hero" >
-        <div >
-          <div >
-            <h1 >
-              Générateur automatique de projets <strong>dbt</strong>
-            </h1>
-            <p >
-              Outil qui transforme une spécification métier (XLSX/CSV) et une description en langage naturel
-              en un projet DBT complet et prêt à l'emploi. Orchestration via <strong>LangGraph</strong>, LLM via
-              <strong>Groq</strong> et intégration Snowflake.
-            </p>
-
-            <div class="cta-buttons">
-              <a class="btn-primary" href="streamlit:run app.py" >Lancer Streamlit</a>
-              <a class="btn-secondary" href="../docs/Documentation%20(4).pdf" download> Télécharger la documentation (PDF)</a>
-            </div>
-          </div>
-
-          <div >
-            <figure >
-              <img src="../assets/images/dbt-generator-streamlit.png"
-                   alt="Capture interface Streamlit"
-                    />
-              <figcaption >Interface Streamlit — suivi en temps réel</figcaption>
-            </figure>
-          </div>
-        </div>
-      </header>
-      -->
         <!-- Bloc description -->
-        <section class="project-description timeline-item">
+        <section class="project-description">
           <h2>Description synthétique</h2>
           <div class="project-description__body">
             <p>
@@ -80,7 +50,7 @@
         </section>
 
         <!-- Technical stack -->
-        <section class="project-technical-stack timeline-item">
+        <section class="project-technical-stack">
           <div>
             <h3>Stack technique</h3>
             <ul>
@@ -100,11 +70,11 @@
               arêtes), <code>formats/prompts</code> (templates jinja2),
               <code>inputs/</code> et <code>outputs/</code>.
             </p>
-            <a class="btn-secondary" href="../README.md">Voir README complet</a>
+            <a class="btn-secondary" href="../assets/project-content/dbt-generator/README.md">Voir README complet</a>
           </div>
         </section>
 
-        <section class="project-architecture timeline-item">
+        <section class="project-architecture">
           <h2>Architecture interne du projet</h2>
           <p>
             Le générateur s’appuie sur une architecture modulaire en couches :
@@ -116,7 +86,7 @@
           </p>
           <figure>
             <img
-              src="../docs/Architecture_schema.png"
+              src="../assets/project-content/dbt-generator/Architecture_schema.png"
               alt="Architecture interne du projet"
             />
             <figcaption>
@@ -151,7 +121,7 @@
           </script>
         </section>
 
-        <section class="project-graph-structure timeline-item">
+        <section class="project-graph-structure">
           <h2>Structure du graphe LangGraph</h2>
           <p>
             L’un des aspects clés du projet est l’orchestration asynchrone des
@@ -163,7 +133,7 @@
           </p>
           <figure>
             <img
-              src="../docs/graphViz.drawio.png"
+              src="../assets/project-content/dbt-generator/graphViz.drawio.png"
               alt="Structure du graphe LangGraph"
             />
             <figcaption>Vue simplifiée du graphe LangGraph</figcaption>
@@ -215,7 +185,7 @@
         </section>
 
         <!-- Workflow / Graph -->
-        <section class="project-workflow timeline-item">
+        <section class="project-workflow">
           <h2>Flux d'exécution (vue globale)</h2>
 
           <!-- Visual placeholder (SVG) pour le graphe LangGraph -->
@@ -223,7 +193,7 @@
         </section>
 
         <!-- Snowflake ingestion details -->
-        <section class="project-snowflake-params timeline-item">
+        <section class="project-snowflake-params">
           <h2>Ingestion des métadonnées — Snowflake</h2>
           <p>
             Le pipeline peut connecter Snowflake pour extraire la liste des
@@ -291,7 +261,7 @@
         <!-- =========================
       CLI & Tasks (install, run, clean, backup)
       ========================= -->
-        <section class="project-cli-tasks timeline-item">
+        <section class="project-cli-tasks">
           <h2>CLI & Tasks — Utilisation sans interface graphique</h2>
           <p>
             Le projet propose une interface en ligne de commande (entrée
@@ -343,7 +313,7 @@
           <figure>
             <!-- Insérer : diagramme séquentiel montrant main.py -> tasks -> generate_dbt_project -->
             <img
-              src="../docs/cli_tasks_sequence.png"
+              src="../assets/project-content/dbt-generator/cli_tasks_sequence.png"
               alt="Séquence CLI → Tasks → pipeline"
             />
             <figcaption>
@@ -355,7 +325,7 @@
         <!-- =========================
      Noeuds détaillés (init, ingestion, plan, generate_source_yaml, prepare_file_specs, generate_file, create_file, save_outputs, end_process)
      ========================= -->
-        <section class="project-nodes-detailed timeline-item">
+        <section class="project-nodes-detailed">
           <h2>Descriptions détaillées des nœuds du graphe</h2>
           <p>
             Ci-dessous la liste des nœuds principaux avec leur rôle, entrées,
@@ -425,7 +395,7 @@
             </ul>
             <figure>
               <img
-                src="../docs/snowflake_metadata_flow.png"
+                src="../assets/project-content/dbt-generator/snowflake_metadata_flow.png"
                 alt="Flow ingestion Snowflake"
               />
               <figcaption>
@@ -626,7 +596,7 @@
         <!-- =========================
      Logging & monitoring
      ========================= -->
-        <section class="project-logging timeline-item">
+        <section class="project-logging">
           <h2>Logging & Monitoring</h2>
           <p>
             Le projet implémente un logger en mémoire (affiché dans Streamlit)
@@ -654,7 +624,7 @@
 
           <figure>
             <img
-              src="../docs/logging_architecture.png"
+              src="../assets/project-content/dbt-generator/logging_architecture.png"
               alt="Architecture logging"
             />
             <figcaption>
@@ -674,7 +644,7 @@
         <!-- =========================
      Backups, outputs et archive
      ========================= -->
-        <section class="project-backups timeline-item">
+        <section class="project-backups">
           <h2>Backups & outputs</h2>
           <p>
             Le dossier <code>outputs/</code> contient les projets générés ; la
@@ -710,7 +680,7 @@ outputs/
         <!-- =========================
      Sécurité & gestion des identifiants (Snowflake, Groq)
      ========================= -->
-        <section class="project-security timeline-item">
+        <section class="project-security">
           <h2>Sécurité & gestion des identifiants</h2>
           <p>
             Les secrets (GROQ_API_KEY, SNOWFLAKE_PASSWORD, etc.) sont stockés
@@ -749,7 +719,7 @@ outputs/
         <!-- =========================
      Extensibilité & bonnes pratiques
      ========================= -->
-        <section class="project-extensibility timeline-item">
+        <section class="project-extensibility">
           <h2>Extensibilité & bonnes pratiques</h2>
           <p>
             Le code est conçu pour être modulaire. Voici des axes d’amélioration
@@ -778,7 +748,7 @@ outputs/
         </section>
 
         <!-- Example plan -->
-        <section class="project-plan-example timeline-item">
+        <section class="project-plan-example">
           <h2>Exemple (extrait) de plan produit</h2>
 
           <p>
@@ -826,12 +796,15 @@ outputs/
         </section>
 
         <!-- Gallery & Downloads -->
-        <section class="project-gallery timeline-item">
+        <section class="project-gallery">
           <h2>Visuels & documentation</h2>
 
           <div>
             <figure>
-              <img src="../docs/graphViz.drawio.png" alt="Graphe LangGraph" />
+              <img
+                src="../assets/project-content/dbt-generator/graphViz.drawio.png"
+                alt="Graphe LangGraph"
+              />
               <figcaption>
                 Schéma du graphe LangGraph – orchestration du pipeline IA
               </figcaption>
@@ -839,7 +812,7 @@ outputs/
 
             <figure>
               <img
-                src="../docs/Orchestrenom.drawio.png"
+                src="../assets/project-content/dbt-generator/Orchestrenom.drawio.png"
                 alt="Architecture du pipeline complet"
               />
               <figcaption>
@@ -849,7 +822,7 @@ outputs/
 
             <figure>
               <img
-                src="../docs/exemple_specs.png"
+                src="../assets/project-content/dbt-generator/exemple_specs.png"
                 alt="Exemple de spécification Excel"
               />
               <figcaption>
@@ -861,7 +834,7 @@ outputs/
 
           <div>
             <a
-              href="../docs/Documentation%20(4).pdf"
+              href="../assets/project-content/dbt-generator/Documentation.pdf"
               class="btn-primary"
               download
             >
@@ -871,13 +844,14 @@ outputs/
           </div>
         </section>
 
-        <section class="project-streamlit timeline-item">
+        <section class="project-streamlit">
           <h2>Interface Streamlit</h2>
           <p>
             L’interface graphique permet de lancer la génération DBT sans passer
             par la CLI. Elle affiche les logs en temps réel, une animation
-            d’attente, et propose un accès direct au projet généré dans le
-            répertoire <code>outputs/</code>.
+            d’attente montrant les étapes en cours de la génération du projet.
+            Une fois généré dans le répertoire <code>outputs/</code>, on peut
+            télécharger les logs, ou l'état pour du débuggage.
           </p>
           <figure>
             <img
@@ -891,7 +865,7 @@ outputs/
         </section>
 
         <!-- Learnings -->
-        <section class="project-learnings timeline-item">
+        <section class="project-learnings">
           <h2>Compétences & enseignements</h2>
           <p>
             Ce projet m’a permis d’approfondir la conception d’architectures de
@@ -928,16 +902,18 @@ outputs/
         </section>
 
         <!-- Links -->
-        <section class="project-links timeline-item">
+        <section class="project-links">
           <h2>Liens utiles</h2>
           <ul>
             <li>
               <a
-                href="https://github.com/username/dbt-project-generator"
-                target="_blank"
-                ><i class="fa-brands fa-github"></i> Code source sur GitHub</a
+                href="#"
+                onclick="alert('Désolé, projet confidentiel (pour l\'instant). Pour plus de précision, veuillez me contacter.'); return false;"
               >
+                <i class="fa-brands fa-github"></i> Code source sur GitHub
+              </a>
             </li>
+
             <li>
               <a href="https://docs.getdbt.com/" target="_blank"
                 ><i class="fa-solid fa-book"></i> Documentation officielle
