@@ -1,0 +1,101 @@
+{
+  "data": {
+    "chat.jpg": {
+      "description": "Image de test (chat) utilisée pour les démonstrations du débruitage"
+    },
+    "femmes.jpg": {
+      "description": "Image de test (portrait de femmes) pour comparer les résultats du débruitage ACP"
+    },
+    "lena.jpg": {
+      "description": "Image standard de référence en traitement d’images (Lena)"
+    },
+    "lion2.jpg": {
+      "description": "Variante de l’image du lion, test complémentaire pour le débruitage"
+    },
+    "lion.jpg": {
+      "description": "Image de lion, utilisée comme exemple dans l’interface graphique"
+    }
+  },
+  "lib": {
+    "commons-math3-3.6.1.jar": {
+      "description": "Bibliothèque Apache Commons Math — utilisée pour le calcul matriciel, l’ACP et la décomposition spectrale"
+    },
+    "javafx.base.jar": {
+      "description": "Module JavaFX de base (types fondamentaux, propriétés, observables)"
+    },
+    "javafx.controls.jar": {
+      "description": "Composants graphiques JavaFX (boutons, sliders, labels, tableaux, etc.)"
+    },
+    "javafx.fxml.jar": {
+      "description": "Support du format FXML pour la définition d’interfaces JavaFX"
+    },
+    "javafx.graphics.jar": {
+      "description": "Moteur graphique JavaFX (scène, rendu, graphes de scène, nœuds)"
+    },
+    "javafx.media.jar": {
+      "description": "Module pour la lecture de médias (audio/vidéo) — peu utilisé ici"
+    },
+    "javafx.swing.jar": {
+      "description": "Passerelle entre JavaFX et Swing/AWT (interopérabilité graphique)"
+    },
+    "javafx-swt.jar": {
+      "description": "Bridge optionnel entre JavaFX et SWT (Eclipse)"
+    },
+    "javafx.web.jar": {
+      "description": "Composant WebView (affichage HTML) de JavaFX — non utilisé directement ici"
+    }
+  },
+  "makefile": {
+    "description": "Script de compilation et d’exécution (génération du JAR, nettoyage, dépendances)"
+  },
+  "MANIFEST.MF": {
+    "description": "Descripteur du JAR exécutable — définit la classe principale (Main-Class) et le classpath"
+  },
+  "src": {
+    "core": {
+      "Critere.java": {
+        "description": "Implémente les critères de seuillage pour l’ACP : méthodes VisuShrink, BayesShrink et autres heuristiques"
+      },
+      "Image.java": {
+        "description": "Classe principale de manipulation d’images : lecture, conversion, ajout de bruit, découpage en patches, reconstruction et seuillage"
+      },
+      "ImageTest.java": {
+        "description": "Classe de tests unitaires et expérimentations pour valider les opérations sur les images (découpage, reconstruction, PSNR, etc.)"
+      },
+      "OutilsMathematiques.java": {
+        "description": "Regroupe les outils de calcul matriciel : génération des matrices de données, ACP (valeurs/vecteurs propres), projection et reconstruction"
+      },
+      "PatchCollection.java": {
+        "description": "Gère la collection de patches : extraction, centrage, calcul de covariance, reconstruction d’image à partir des patches transformés"
+      },
+      "Patch.java": {
+        "description": "Structure de données représentant un patch d’image (vecteur de pixels), avec opérations de seuillage et conversion matrice/vecteur"
+      }
+    },
+    "gui": {
+      "Accueil.java": {
+        "description": "Écran d’accueil JavaFX — point d’entrée de l’application graphique"
+      },
+      "Appli.java": {
+        "description": "Classe principale de l’application JavaFX — initialise la scène et gère la navigation entre les vues"
+      },
+      "ChoixImage.java": {
+        "description": "Interface JavaFX pour la sélection de l’image d’entrée (fichier du dossier data)"
+      },
+      "ChoixParametres.java": {
+        "description": "Interface JavaFX pour le réglage des paramètres du débruitage : taille de patch, sigma, nombre de composantes, méthode de seuillage"
+      },
+      "Resultat.java": {
+        "description": "Interface de visualisation des résultats : affiche l’image d’origine, l’image débruitée et les mesures (PSNR, variance expliquée)"
+      }
+    },
+    "main": {
+      "Console.java": {
+        "description": "Interface en ligne de commande (CLI) — permet d’exécuter le pipeline de débruitage sans interface graphique"
+      },
+      "Main.java": {
+        "description": "Point d’entrée du programme — lance l’application JavaFX via la classe Appli"
+      }
+    }
+  }
+}
