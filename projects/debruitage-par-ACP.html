@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Débruitage d’images par ACP — Projet JavaFX</title>
+
+    <!-- Feuilles de style (mêmes que ton modèle) -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/header-footer.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/project-details.css" />
+    <link rel="stylesheet" href="../css/file_tree.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <meta
+      name="description"
+      content="Projet de débruitage d’images par Analyse en Composantes Principales (ACP), développé en Java (JavaFX, Apache Commons Math)."
+    />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div id="breadcrumb"></div>
+    <script src="../js/breadcrumb.js" defer></script>
+
+    <main class="project-detail">
+      <div class="container">
+        <!-- =========================
+        HERO
+        ========================= -->
+        <header class="hero project-hero">
+          <div>
+            <div>
+              <h1>Débruitage d’images par <strong>Analyse en Composantes Principales</strong></h1>
+              <p>
+                Ce projet implémente un système complet de débruitage d’images basé sur
+                l’<strong>Analyse en Composantes Principales (ACP / PCA)</strong>.
+                Il permet de restaurer des images altérées par du bruit gaussien ou impulsionnel,
+                en reconstruisant les patchs d’image à partir des composantes principales dominantes.
+              </p>
+
+              <div class="cta-buttons">
+                <a class="btn-primary" href="../assets/project-content/debruitage-par-ACP/debruitage.jar" download>
+                  <i class="fa-solid fa-download"></i> Télécharger l’application (JAR)
+                </a>
+                <a class="btn-secondary" href="../assets/project-content/debruitage-par-ACP/Documentation.pdf" download>
+                  <i class="fa-solid fa-file-pdf"></i> Télécharger la documentation (PDF)
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <figure>
+                <img
+                  src="../assets/project-content/debruitage-par-ACP/lena_comparaison.png"
+                  alt="Exemple de débruitage d’image"
+                />
+                <figcaption>Comparaison avant / après débruitage (image Lena)</figcaption>
+              </figure>
+            </div>
+          </div>
+        </header>
+
+        <!-- =========================
+        DESCRIPTION
+        ========================= -->
+        <section class="project-description">
+          <h2>Description synthétique</h2>
+          <div class="project-description__body">
+            <p>
+              Le projet met en œuvre un modèle de traitement d’images utilisant
+              l’Analyse en Composantes Principales (ACP) pour réduire le bruit tout en préservant les détails.
+              Chaque image est découpée en <em>patchs</em> redondants, analysés statistiquement,
+              puis reconstruits à partir des axes principaux les plus significatifs.
+            </p>
+            <p>
+              Une interface JavaFX intuitive permet de sélectionner une image, régler les paramètres
+              (taille de patchs, nombre de composantes, intensité du bruit) et visualiser le résultat.
+            </p>
+          </div>
+        </section>
+
+        <!-- =========================
+        STACK TECHNIQUE
+        ========================= -->
+        <section class="project-technical-stack">
+          <div>
+            <h3>Stack technique</h3>
+            <ul>
+              <li>Java 17+</li>
+              <li>JavaFX (interface graphique)</li>
+              <li>Apache Commons Math 3.6.1 (calculs matriciels & ACP)</li>
+              <li>Makefile pour compilation & exécution</li>
+              <li>Structure MVC avec modules <code>core</code>, <code>gui</code> et <code>main</code></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Fichiers clefs</h3>
+            <p>
+              L’application est organisée de manière modulaire :
+              <code>src/core</code> (traitement d’image et algorithmes ACP),
+              <code>src/gui</code> (interface JavaFX) et <code>src/main</code> (lancement & console).
+            </p>
+            <a class="btn-secondary" href="../assets/project-content/debruitage-par-ACP/README.md">Voir README complet</a>
+          </div>
+        </section>
+
+        <!-- =========================
+        ARCHITECTURE
+        ========================= -->
+        <section class="project-architecture">
+          <h2>Architecture interne du projet</h2>
+          <p>
+            L’architecture repose sur une séparation claire entre la logique métier (traitement ACP)
+            et la présentation (JavaFX). Le cœur du système se situe dans le package
+            <code>core</code>, responsable du traitement des matrices, des patchs et de la
+            reconstruction de l’image.
+          </p>
+
+          <figure>
+            <img
+              src="../assets/project-content/debruitage-par-ACP/architecture_schema.png"
+              alt="Architecture interne du projet"
+            />
+            <figcaption>Schéma général de l’architecture — interaction entre modules core, gui et main</figcaption>
+          </figure>
+
+          <h3>Arborescence du projet</h3>
+          <div id="file-tree"></div>
+
+          <script src="../js/file_tree.js"></script>
+          <script>
+            (function () {
+              const url = "../assets/project-content/debruitage-par-ACP/tree.json";
+              fetch(url)
+                .then((res) => {
+                  if (!res.ok) throw new Error(`HTTP ${res.status} on ${url}`);
+                  return res.json();
+                })
+                .then((data) => renderFileTree("file-tree", data))
+                .catch((err) => {
+                  console.error("[file_tree] Échec du chargement JSON:", err);
+                  const container = document.getElementById("file-tree");
+                  if (container) container.textContent = "Impossible de charger l’arborescence.";
+                });
+            })();
+          </script>
+        </section>
+
+        <!-- =========================
+        DETAILS DES MODULES
+        ========================= -->
+        <section class="project-nodes-detailed">
+          <h2>Modules principaux</h2>
+
+          <article>
+            <h3>core/Image.java</h3>
+            <p>
+              Classe représentant une image matricielle. Gère le chargement, la conversion RGB → niveaux de gris,
+              le découpage en patchs et la reconstitution finale après traitement.
+            </p>
+          </article>
+
+          <article>
+            <h3>core/Patch.java & PatchCollection.java</h3>
+            <p>
+              Ces classes encapsulent la notion de patch : un sous-bloc carré de l’image.  
+              <code>PatchCollection</code> agrège l’ensemble des patchs, permettant une analyse statistique globale.
+            </p>
+          </article>
+
+          <article>
+            <h3>core/OutilsMathematiques.java</h3>
+            <p>
+              Contient les fonctions utilitaires de calcul matriciel : covariance, centrage, ACP (via SVD),
+              réduction dimensionnelle et reconstruction d’image.  
+              Utilise la librairie Apache Commons Math.
+            </p>
+          </article>
+
+          <article>
+            <h3>core/Critere.java</h3>
+            <p>
+              Implémente différents critères de sélection du nombre optimal de composantes principales,
+              par exemple en fonction de la variance expliquée ou du rapport signal/bruit.
+            </p>
+          </article>
+
+          <article>
+            <h3>gui/Appli.java, Accueil.java, ChoixImage.java, ChoixParametres.java, Resultat.java</h3>
+            <p>
+              Ensemble des classes JavaFX qui définissent l’interface graphique :
+              choix de l’image source, des paramètres de débruitage, et affichage du résultat reconstruit.
+            </p>
+          </article>
+
+          <article>
+            <h3>main/Main.java & Console.java</h3>
+            <p>
+              Point d’entrée du programme (GUI ou mode console).  
+              Permet le lancement via interface graphique ou exécution en ligne de commande
+              pour des tests automatisés.
+            </p>
+          </article>
+        </section>
+
+        <!-- =========================
+        WORKFLOW
+        ========================= -->
+        <section class="project-workflow">
+          <h2>Flux d’exécution (traitement ACP)</h2>
+          <ol>
+            <li>Chargement de l’image originale depuis <code>data/</code></li>
+            <li>Ajout de bruit (optionnel) pour test de robustesse</li>
+            <li>Découpage en patchs redondants (overlapping)</li>
+            <li>Calcul des composantes principales sur la matrice de patchs</li>
+            <li>Projection sur les axes principaux et reconstruction</li>
+            <li>Assemblage des patchs et reconstitution finale</li>
+          </ol>
+
+          <figure>
+            <img
+              src="../assets/project-content/debruitage-par-ACP/workflow_acp.png"
+              alt="Workflow du débruitage par ACP"
+            />
+            <figcaption>Pipeline de débruitage : du bruit au résultat reconstruit</figcaption>
+          </figure>
+        </section>
+
+        <!-- =========================
+        LOGGING / TESTS
+        ========================= -->
+        <section class="project-logging">
+          <h2>Tests & validation</h2>
+          <p>
+            Le module <code>ImageTest.java</code> assure la validation des fonctions
+            de chargement, découpage, ACP et reconstruction.
+            Des images de test (<code>lena.jpg</code>, <code>lion.jpg</code>, etc.)
+            sont fournies dans le dossier <code>data/</code>.
+          </p>
+          <p>
+            Le programme calcule le PSNR (Peak Signal-to-Noise Ratio) avant et après traitement,
+            et affiche la variance cumulée expliquée par les composantes retenues.
+          </p>
+        </section>
+
+        <!-- =========================
+        VISUELS
+        ========================= -->
+        <section class="project-gallery">
+          <h2>Exemples de résultats</h2>
+          <div>
+            <figure>
+              <img src="../assets/project-content/debruitage-par-ACP/lion_comparaison.png" alt="Débruitage image Lion" />
+              <figcaption>Débruitage d’une image bruitée (Lion) — ACP, k = 20 composantes</figcaption>
+            </figure>
+
+            <figure>
+              <img src="../assets/project-content/debruitage-par-ACP/femmes_avant_apres.png" alt="Résultat Femmes" />
+              <figcaption>Image avant / après débruitage</figcaption>
+            </figure>
+
+            <figure>
+              <img src="../assets/project-content/debruitage-par-ACP/patchs_visualisation.png" alt="Visualisation des patchs" />
+              <figcaption>Visualisation des patchs extraits pour l’analyse ACP</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- =========================
+        COMPÉTENCES & APPRENTISSAGES
+        ========================= -->
+        <section class="project-learnings">
+          <h2>Compétences & enseignements</h2>
+          <ul>
+            <li>Mise en œuvre de l’Analyse en Composantes Principales appliquée au traitement d’images</li>
+            <li>Utilisation de bibliothèques scientifiques Java (Apache Commons Math)</li>
+            <li>Conception d’une interface JavaFX ergonomique</li>
+            <li>Gestion des matrices et patchs d’image</li>
+            <li>Implémentation d’outils de test et d’analyse de performance</li>
+          </ul>
+          <p>
+            Ce projet m’a permis de lier mathématiques appliquées et programmation graphique
+            pour aboutir à un outil pédagogique et efficace de restauration d’images.
+          </p>
+        </section>
+
+        <!-- =========================
+        LIENS
+        ========================= -->
+        <section class="project-links">
+          <h2>Liens utiles</h2>
+          <ul>
+            <li>
+              <a href="#" onclick="alert('Projet local académique. Contactez l’auteur pour l’accès au code source.'); return false;">
+                <i class="fa-brands fa-github"></i> Code source (privé)
+              </a>
+            </li>
+            <li>
+              <a href="https://commons.apache.org/proper/commons-math/" target="_blank">
+                <i class="fa-solid fa-square-root-variable"></i> Apache Commons Math
+              </a>
+            </li>
+            <li>
+              <a href="https://openjfx.io/" target="_blank">
+                <i class="fa-brands fa-java"></i> Documentation JavaFX
+              </a>
+            </li>
+            <li>
+              <a href="https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales" target="_blank">
+                <i class="fa-solid fa-chart-line"></i> Comprendre l’ACP
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+    <script src="../js/dynamic-content.js" defer></script>
+  </body>
+</html>
