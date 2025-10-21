@@ -43,7 +43,6 @@
   margin-bottom: clamp(1rem, 2.5vw, 2rem);
 }
 
-
 /* ===============================
    SECTIONS COMMUNES (style carte)
    =============================== */
@@ -158,8 +157,6 @@ figure figcaption {
   color: var(--medium-light-color, #666);
   margin-top: 0.5rem;
 }
-
-
 
 /* ===============================
    Galerie (3 images flex)

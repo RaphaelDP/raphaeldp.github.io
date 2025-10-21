@@ -6,14 +6,14 @@ Un générateur automatique de projets **DBT** basé sur **LangGraph** et **Groq
 
 ## ✨ Fonctionnalités principales
 
-* 🛠️ **Installation automatisée** : création d’un environnement virtuel et installation des dépendances.
-* ⚙️ **Initialisation interactive** : configuration guidée de `.env` et `profiles.yml` avec masquage des secrets.
-* 📊 **Ingestion multi-formats** : support des fichiers `xlsx`, `csv`, `txt`, …
-* 🤖 **Planification avec LLM (Groq)** : génération de plan DBT en langage naturel.
-* 🗂️ **Génération automatique de fichiers DBT** : modèles, tests, `schema.yml`.
-* 💾 **Sauvegardes** : backup timestampé des projets générés.
-* 🧹 **Nettoyage** : suppression des caches et outputs obsolètes.
-* 🔌 **Intégration Snowflake** : configuration complète du compte, user, rôle, warehouse, base et schéma.
+- 🛠️ **Installation automatisée** : création d’un environnement virtuel et installation des dépendances.
+- ⚙️ **Initialisation interactive** : configuration guidée de `.env` et `profiles.yml` avec masquage des secrets.
+- 📊 **Ingestion multi-formats** : support des fichiers `xlsx`, `csv`, `txt`, …
+- 🤖 **Planification avec LLM (Groq)** : génération de plan DBT en langage naturel.
+- 🗂️ **Génération automatique de fichiers DBT** : modèles, tests, `schema.yml`.
+- 💾 **Sauvegardes** : backup timestampé des projets générés.
+- 🧹 **Nettoyage** : suppression des caches et outputs obsolètes.
+- 🔌 **Intégration Snowflake** : configuration complète du compte, user, rôle, warehouse, base et schéma.
 
 ---
 
@@ -21,12 +21,12 @@ Un générateur automatique de projets **DBT** basé sur **LangGraph** et **Groq
 
 La génération suit les étapes suivantes :
 
-* Ingestion : Lecture et structuration du fichier de spécifications (sources, modèles, relations, descriptions).
-* Planification : Génération (ou chargement) d’un plan structuré du projet.
-* Préparation : Construction des file specs à partir du plan et du format attendu.
-* Génération des fichiers : Création des modèles SQL et des fichiers de configuration (ex: schema.yml).
-* Écriture des fichiers : Enregistrement physique du projet dans outputs/.
-* Finalisation : Sauvegarde éventuelle du plan/fichiers, logs et backup possible.
+- Ingestion : Lecture et structuration du fichier de spécifications (sources, modèles, relations, descriptions).
+- Planification : Génération (ou chargement) d’un plan structuré du projet.
+- Préparation : Construction des file specs à partir du plan et du format attendu.
+- Génération des fichiers : Création des modèles SQL et des fichiers de configuration (ex: schema.yml).
+- Écriture des fichiers : Enregistrement physique du projet dans outputs/.
+- Finalisation : Sauvegarde éventuelle du plan/fichiers, logs et backup possible.
 
 Ces étapes sont orchestrées via LangGraph, avec des nœuds spécialisés (ingestion, plan, génération de fichiers, sauvegarde, etc.) et des edges de décision pour charger ou régénérer les objets.
 
@@ -73,8 +73,8 @@ python main.py init
 
 Vous serez guidé pour compléter :
 
-* `.env` (clés API, Snowflake, Groq, …)
-* `profiles.yml` (profil DBT)
+- `.env` (clés API, Snowflake, Groq, …)
+- `profiles.yml` (profil DBT)
 
 Les champs sensibles sont masqués.
 
@@ -86,13 +86,13 @@ Les champs sensibles sont masqués.
 
 Lors de l’initialisation, vous devrez fournir les informations suivantes :
 
-* **account** → `xy12345.eu-central-1`
-* **user** → `dbt_user`
-* **password** → `********`
-* **role** → `SYSADMIN`
-* **warehouse** → `COMPUTE_WH`
-* **database** → `ANALYTICS_DB`
-* **schema** → `PUBLIC`
+- **account** → `xy12345.eu-central-1`
+- **user** → `dbt_user`
+- **password** → `********`
+- **role** → `SYSADMIN`
+- **warehouse** → `COMPUTE_WH`
+- **database** → `ANALYTICS_DB`
+- **schema** → `PUBLIC`
 
 ### Groq
 
@@ -117,10 +117,10 @@ python main.py run
 
 Vous serez invité à fournir :
 
-* Nom du projet
-* Base output path
-* Profil DBT à utiliser (attention il doit déjà être créé via l'initialisation)
-* Fichier de spécification (`xlsx` ou `csv`)
+- Nom du projet
+- Base output path
+- Profil DBT à utiliser (attention il doit déjà être créé via l'initialisation)
+- Fichier de spécification (`xlsx` ou `csv`)
 
 Le projet sera généré dans `outputs/`.
 
@@ -146,13 +146,11 @@ streamlit run app.py
 
 Ceci ouvre une interface graphique dans le navigateur, où vous pouvez :
 
-* Fournir la description utilisateur et le fichier de spécification.
-* Lancer la génération DBT avec suivi visuel.
-* Accéder au chemin du projet généré directement.
+- Fournir la description utilisateur et le fichier de spécification.
+- Lancer la génération DBT avec suivi visuel.
+- Accéder au chemin du projet généré directement.
 
 ---
-
-
 
 ## 📚 Architecture du projet
 
@@ -254,17 +252,17 @@ C:.
 
 ## 🛠️ Dépendances principales
 
-* [Python 3.10+](https://www.python.org/)
-* [dbt-core](https://docs.getdbt.com/)
-* [Snowflake](https://www.snowflake.com/)
-* [LangGraph](https://python.langchain.com/docs/langgraph/)
-* [Groq](https://groq.com/)
+- [Python 3.10+](https://www.python.org/)
+- [dbt-core](https://docs.getdbt.com/)
+- [Snowflake](https://www.snowflake.com/)
+- [LangGraph](https://python.langchain.com/docs/langgraph/)
+- [Groq](https://groq.com/)
 
 ---
 
 ## 🧑‍💻 Contributeurs
 
-* Auteurs principaux : Raphael DIEZ PECOSTE , Julien PAPINI
-* Contributions bienvenues via issues & PR.
+- Auteurs principaux : Raphael DIEZ PECOSTE , Julien PAPINI
+- Contributions bienvenues via issues & PR.
 
 ---

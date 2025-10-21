@@ -32,15 +32,20 @@
 
     <main class="project-detail">
       <div class="container">
-
         <!-- =========================
            INTRO (sans hero) - court encart d'accroche
         ========================= -->
         <section class="project-intro">
-          <h1>Débruitage d’images par <strong>Analyse en Composantes Principales (ACP)</strong></h1>
+          <h1>
+            Débruitage d’images par
+            <strong>Analyse en Composantes Principales (ACP)</strong>
+          </h1>
           <p class="muted">
-            Projet Java implémentant une méthode de débruitage basée sur la décomposition en composantes principales des patches d’image.
-            Interface JavaFX, calcul matriciel via Apache Commons Math, utilitaires image et pipeline expérimentaux contenus sous <code>src/</code>.
+            Projet Java implémentant une méthode de débruitage basée sur la
+            décomposition en composantes principales des patches d’image.
+            Interface JavaFX, calcul matriciel via Apache Commons Math,
+            utilitaires image et pipeline expérimentaux contenus sous
+            <code>src/</code>.
           </p>
         </section>
 
@@ -51,12 +56,19 @@
           <h2>But et approche</h2>
           <div class="project-description__body">
             <p>
-              L’objectif est de concevoir et d’implémenter un algorithme de débruitage d’images reposant sur l’Analyse en Composantes Principales (ACP / PCA).
-              L’idée centrale : découper l’image en petits patchs redondants, construire une matrice où chaque ligne représente un patch, extraire les axes principaux
-              (vecteurs propres) de la covariance, projeter chaque patch sur un sous-espace de faible dimension puis reconstruire l’image à partir des contributions retenues.
+              L’objectif est de concevoir et d’implémenter un algorithme de
+              débruitage d’images reposant sur l’Analyse en Composantes
+              Principales (ACP / PCA). L’idée centrale : découper l’image en
+              petits patchs redondants, construire une matrice où chaque ligne
+              représente un patch, extraire les axes principaux (vecteurs
+              propres) de la covariance, projeter chaque patch sur un
+              sous-espace de faible dimension puis reconstruire l’image à partir
+              des contributions retenues.
             </p>
             <p>
-              Le pipeline est conçu pour être expérimental et pédagogique : paramètres (taille de patch, nombre de composantes, méthode de seuillage) sont ajustables via l’interface JavaFX et le code.
+              Le pipeline est conçu pour être expérimental et pédagogique :
+              paramètres (taille de patch, nombre de composantes, méthode de
+              seuillage) sont ajustables via l’interface JavaFX et le code.
             </p>
           </div>
         </section>
@@ -73,22 +85,32 @@
               <ul>
                 <li>Java (JDK 11+ / 17+ compatible)</li>
                 <li>JavaFX (interface graphique)</li>
-                <li>Apache Commons Math 3.6.1 — calculs matriciels & décomposition</li>
+                <li>
+                  Apache Commons Math 3.6.1 — calculs matriciels & décomposition
+                </li>
                 <li>Makefile (compilation / packaging)</li>
-                <li>Bibliothèque locale : <code>lib/commons-math3-3.6.1.jar</code> et jars JavaFX</li>
+                <li>
+                  Bibliothèque locale :
+                  <code>lib/commons-math3-3.6.1.jar</code> et jars JavaFX
+                </li>
               </ul>
             </div>
 
             <div>
               <h3>Contenu du dépôt</h3>
               <p>
-              L’application est organisée de manière modulaire :
-              <code>src/core</code> (traitement d’image et algorithmes ACP),
-              <code>src/gui</code> (interface JavaFX) et <code>src/main</code> (lancement & console).
-            </p>
-            <a class="btn-secondary" href="../assets/project-content/debruitage-par-ACP/README.md">Voir README complet</a>
+                L’application est organisée de manière modulaire :
+                <code>src/core</code> (traitement d’image et algorithmes ACP),
+                <code>src/gui</code> (interface JavaFX) et
+                <code>src/main</code> (lancement & console).
+              </p>
+              <a
+                class="btn-secondary"
+                href="../assets/project-content/debruitage-par-ACP/README.md"
+                >Voir README complet</a
+              >
+            </div>
           </div>
-
         </section>
 
         <!-- =========================
@@ -99,55 +121,92 @@
 
           <h3>1. Prétraitement</h3>
           <p>
-            - Chargement de l’image via <code>ImageIO</code> (utilisé à plusieurs endroits ; on centralise la lecture/écriture dans <code>Image</code>).<br />
-            - Conversion RGB → niveaux de gris (luminosité) si nécessaire ; l’algorithme opère sur des valeurs scalaires par pixel.
+            - Chargement de l’image via <code>ImageIO</code> (utilisé à
+            plusieurs endroits ; on centralise la lecture/écriture dans
+            <code>Image</code>).<br />
+            - Conversion RGB → niveaux de gris (luminosité) si nécessaire ;
+            l’algorithme opère sur des valeurs scalaires par pixel.
           </p>
 
           <h3>2. Découpage en patches</h3>
           <p>
-            - Les patches sont des blocs carrés extraits de l’image : méthodes utilitaires dans <code>core/Image.java</code> fournissent
-            <code>decoupeImage</code>, <code>decoupeImageEnQuatre</code>, <code>decoupeImageSelonCarreParfait</code> selon le besoin expérimental.<br />
-            - Chaque patch est encapsulé dans <code>core/Patch.java</code>, et la collection de patches est manipulée via <code>PatchCollection.java</code>.
+            - Les patches sont des blocs carrés extraits de l’image : méthodes
+            utilitaires dans <code>core/Image.java</code> fournissent
+            <code>decoupeImage</code>, <code>decoupeImageEnQuatre</code>,
+            <code>decoupeImageSelonCarreParfait</code> selon le besoin
+            expérimental.<br />
+            - Chaque patch est encapsulé dans <code>core/Patch.java</code>, et
+            la collection de patches est manipulée via
+            <code>PatchCollection.java</code>.
           </p>
           <p>
-            - Plusieurs stratégies d’extraction sont supportées : tirage aléatoire de patches, partition régulière (grille) ou découpage en sous-blocs égaux.
-            L’implémentation convertit ensuite chaque patch en vecteur (ligne de la matrice de données).
+            - Plusieurs stratégies d’extraction sont supportées : tirage
+            aléatoire de patches, partition régulière (grille) ou découpage en
+            sous-blocs égaux. L’implémentation convertit ensuite chaque patch en
+            vecteur (ligne de la matrice de données).
           </p>
 
           <h3>3. Construction de la matrice & centrage</h3>
           <p>
-            - On construit une matrice <code>X ∈ R^{N×p}</code> où <code>N</code> est le nombre de patches et <code>p = s × s</code> la dimension d’un patch aplati.<br />
-            - Le centrage (soustraction de la moyenne par colonne) est effectué via <code>PatchCollection.moyCov(...)</code> qui renvoie la moyenne et la matrice de covariance.
+            - On construit une matrice <code>X ∈ R^{N×p}</code> où
+            <code>N</code> est le nombre de patches et <code>p = s × s</code> la
+            dimension d’un patch aplati.<br />
+            - Le centrage (soustraction de la moyenne par colonne) est effectué
+            via <code>PatchCollection.moyCov(...)</code> qui renvoie la moyenne
+            et la matrice de covariance.
           </p>
 
           <h3>4. Calcul de l’ACP (vecteurs propres)</h3>
           <p>
-            - La décomposition spectrale (EigenDecomposition) est effectuée via Apache Commons Math : méthode <code>OutilsMathematiques.calculerVecteursPropres(RealMatrix)</code>.<br />
-            - Les vecteurs propres sont triés par valeur propre décroissante pour capturer d’abord la variance la plus importante.
+            - La décomposition spectrale (EigenDecomposition) est effectuée via
+            Apache Commons Math : méthode
+            <code>OutilsMathematiques.calculerVecteursPropres(RealMatrix)</code
+            >.<br />
+            - Les vecteurs propres sont triés par valeur propre décroissante
+            pour capturer d’abord la variance la plus importante.
           </p>
 
           <h3>5. Projection & seuillage</h3>
           <p>
-            - Chaque patch centré est projeté sur la base des vecteurs propres : <code>OutilsMathematiques.projeterContributions</code> calcule les contributions (coefficients α_k).<br />
-            - Optionnellement, on applique un seuillage sur ces coefficients (méthodes implémentées dans <code>Patch</code> / <code>Critere</code>) : seuillage dur ou doux, avec critères SV (VisuShrink) ou BayesShrink.
+            - Chaque patch centré est projeté sur la base des vecteurs propres :
+            <code>OutilsMathematiques.projeterContributions</code> calcule les
+            contributions (coefficients α_k).<br />
+            - Optionnellement, on applique un seuillage sur ces coefficients
+            (méthodes implémentées dans <code>Patch</code> /
+            <code>Critere</code>) : seuillage dur ou doux, avec critères SV
+            (VisuShrink) ou BayesShrink.
           </p>
 
           <h3>6. Reconstruction</h3>
           <p>
-            - Après seuillage, on reconstruit chaque patch : somme du vecteur moyen + combinaison linéaire des vecteurs de base pondérés par les coefficients seuillés
-            (implémenté dans <code>Image.reconctructionSeuillage</code> ; attention: accumulation des contributions correctement implémentée pour additionner et non écraser les valeurs).<br />
-            - Les patches reconstruits sont ensuite remis en place dans l’image finale (<code>PatchCollection.reconstructPatchs2</code> ou <code>Image.reconstituerImage</code>).
+            - Après seuillage, on reconstruit chaque patch : somme du vecteur
+            moyen + combinaison linéaire des vecteurs de base pondérés par les
+            coefficients seuillés (implémenté dans
+            <code>Image.reconctructionSeuillage</code> ; attention: accumulation
+            des contributions correctement implémentée pour additionner et non
+            écraser les valeurs).<br />
+            - Les patches reconstruits sont ensuite remis en place dans l’image
+            finale (<code>PatchCollection.reconstructPatchs2</code> ou
+            <code>Image.reconstituerImage</code>).
           </p>
 
           <h3>7. Post-traitement & métriques</h3>
           <p>
-            - Calcul du PSNR (Peak Signal-to-Noise Ratio) et/ou MSE entre l’image d’origine et l’image débruitée pour évaluer la qualité.<br />
-            - Affichage des courbes de variance expliquée (somme cumulée des valeurs propres) pour aider le choix du nombre de composantes retenues.
+            - Calcul du PSNR (Peak Signal-to-Noise Ratio) et/ou MSE entre
+            l’image d’origine et l’image débruitée pour évaluer la qualité.<br />
+            - Affichage des courbes de variance expliquée (somme cumulée des
+            valeurs propres) pour aider le choix du nombre de composantes
+            retenues.
           </p>
 
           <figure>
-            <img src="../assets/project-content/debruitage-par-ACP/workflow_acp_detailed.png" alt="Schéma détaillé du pipeline ACP" />
-            <figcaption>Pipeline détaillé : extraction → ACP → seuillage → reconstruction.</figcaption>
+            <img
+              src="../assets/project-content/debruitage-par-ACP/workflow_acp_detailed.png"
+              alt="Schéma détaillé du pipeline ACP"
+            />
+            <figcaption>
+              Pipeline détaillé : extraction → ACP → seuillage → reconstruction.
+            </figcaption>
           </figure>
 
           <h3>Arborescence du projet</h3>
@@ -156,7 +215,8 @@
           <script src="../js/file_tree.js"></script>
           <script>
             (function () {
-              const url = "../assets/project-content/debruitage-par-ACP/tree.json";
+              const url =
+                "../assets/project-content/debruitage-par-ACP/tree.json";
               fetch(url)
                 .then((res) => {
                   if (!res.ok) throw new Error(`HTTP ${res.status} on ${url}`);
@@ -166,7 +226,9 @@
                 .catch((err) => {
                   console.error("[file_tree] Échec du chargement JSON:", err);
                   const container = document.getElementById("file-tree");
-                  if (container) container.textContent = "Impossible de charger l’arborescence.";
+                  if (container)
+                    container.textContent =
+                      "Impossible de charger l’arborescence.";
                 });
             })();
           </script>
@@ -181,68 +243,109 @@
           <article>
             <h3><code>core/Image.java</code></h3>
             <p>
-              - Lecture/écriture d’images, conversion en matrice pixels, fonctions d’ajout de bruit (gaussien), découpage en <em>imagettes</em> (patchs) et reconstitution.<br />
-              - Méthodes notables : <code>decoupeImage(...)</code>, <code>decoupeImageEnQuatre(...)</code>, <code>decoupeImageSelonCarreParfait(...)</code>,
-              <code>reconstituerImage(...)</code>, <code>imageDEN(...)</code>, <code>imageDENlocale(...)</code>, <code>reconctructionSeuillage(...)</code>.
+              - Lecture/écriture d’images, conversion en matrice pixels,
+              fonctions d’ajout de bruit (gaussien), découpage en
+              <em>imagettes</em> (patchs) et reconstitution.<br />
+              - Méthodes notables : <code>decoupeImage(...)</code>,
+              <code>decoupeImageEnQuatre(...)</code>,
+              <code>decoupeImageSelonCarreParfait(...)</code>,
+              <code>reconstituerImage(...)</code>, <code>imageDEN(...)</code>,
+              <code>imageDENlocale(...)</code>,
+              <code>reconctructionSeuillage(...)</code>.
             </p>
             <p>
-              - Gestion des imagettes : la classe interne <code>Image.Imagette</code> encapsule la sous-image et la position (x,y) dans l’image source.
+              - Gestion des imagettes : la classe interne
+              <code>Image.Imagette</code> encapsule la sous-image et la position
+              (x,y) dans l’image source.
             </p>
           </article>
 
           <article>
             <h3><code>core/Patch.java</code></h3>
             <p>
-              - Représente un patch sous forme d’un vecteur (tableau de doubles) avec getters/setters pour valeurs de pixels et opérations de seuillage (dur/doux).<br />
-              - Les méthodes de seuillage sont appliquées sur les coefficients α, et la classe fournit des utilitaires pour manipuler et convertir les données pixels.
+              - Représente un patch sous forme d’un vecteur (tableau de doubles)
+              avec getters/setters pour valeurs de pixels et opérations de
+              seuillage (dur/doux).<br />
+              - Les méthodes de seuillage sont appliquées sur les coefficients
+              α, et la classe fournit des utilitaires pour manipuler et
+              convertir les données pixels.
             </p>
           </article>
 
           <article>
             <h3><code>core/PatchCollection.java</code></h3>
             <p>
-              - Container pour une collection de <code>Patch</code> et leurs positions. Fournit :
-              <ul>
-                <li><code>extractPatches(BufferedImage, patchSize)</code> — extraction de patches</li>
-                <li><code>moyCov(PatchCollection)</code> — calcul du vecteur moyen et de la matrice de covariance</li>
-                <li><code>reconstructPatchs2(...)</code> — algorithme pour assembler les patches en image finale</li>
-                <li>Accesseurs : <code>getPatches()</code>, <code>getPatchPositions()</code></li>
-              </ul>
+              - Container pour une collection de <code>Patch</code> et leurs
+              positions. Fournit :
             </p>
+            <ul>
+              <li>
+                <code>extractPatches(BufferedImage, patchSize)</code> —
+                extraction de patches
+              </li>
+              <li>
+                <code>moyCov(PatchCollection)</code> — calcul du vecteur moyen
+                et de la matrice de covariance
+              </li>
+              <li>
+                <code>reconstructPatchs2(...)</code> — algorithme pour assembler
+                les patches en image finale
+              </li>
+              <li>
+                Accesseurs : <code>getPatches()</code>,
+                <code>getPatchPositions()</code>
+              </li>
+            </ul>
           </article>
 
           <article>
             <h3><code>core/OutilsMathematiques.java</code></h3>
             <p>
-              - Fonctions numériques : conversion collection ↔ matrice, calcul des vecteurs propres via <code>EigenDecomposition</code>, tri des vecteurs propres,
-              conversion de matrice en <code>PatchCollection</code> et projection des contributions (<code>projeterContributions</code>).
+              - Fonctions numériques : conversion collection ↔ matrice, calcul
+              des vecteurs propres via <code>EigenDecomposition</code>, tri des
+              vecteurs propres, conversion de matrice en
+              <code>PatchCollection</code> et projection des contributions
+              (<code>projeterContributions</code>).
             </p>
             <p>
-              - Méthode importante : <code>calculerVecteursPropres(RealMatrix)</code> qui encapsule l'appel à la décomposition spectrale d'Apache Commons Math et trie les composantes par valeur propre.
+              - Méthode importante :
+              <code>calculerVecteursPropres(RealMatrix)</code> qui encapsule
+              l'appel à la décomposition spectrale d'Apache Commons Math et trie
+              les composantes par valeur propre.
             </p>
           </article>
 
           <article>
             <h3><code>core/Critere.java</code></h3>
             <p>
-              - Implémente des critères de seuillage / détermination du seuil lambda : par exemple <code>seuilVisuShrink</code> (VisuShrink) et <code>seuilBayesShrink</code> (BayesShrink).
-              Ces méthodes servent à définir la force du seuillage appliqué aux coefficients projetés.
+              - Implémente des critères de seuillage / détermination du seuil
+              lambda : par exemple <code>seuilVisuShrink</code> (VisuShrink) et
+              <code>seuilBayesShrink</code> (BayesShrink). Ces méthodes servent
+              à définir la force du seuillage appliqué aux coefficients
+              projetés.
             </p>
           </article>
 
           <article>
             <h3><code>src/gui/*</code> (JavaFX)</h3>
             <p>
-              - Interface organisée en écrans : <code>Accueil</code> (point d'entrée graphique), <code>ChoixImage</code> (sélection d'image), <code>ChoixParametres</code> (taille patchs, sigma, méthode de seuillage),
-              <code>Resultat</code> (visualisation avant/après et métriques).<br />
-              - Les actions utilisateur déclenchent le pipeline via des appels aux classes <code>core</code> (ex : lancer <code>Image.imageDEN</code>).
+              - Interface organisée en écrans : <code>Accueil</code> (point
+              d'entrée graphique), <code>ChoixImage</code> (sélection d'image),
+              <code>ChoixParametres</code> (taille patchs, sigma, méthode de
+              seuillage), <code>Resultat</code> (visualisation avant/après et
+              métriques).<br />
+              - Les actions utilisateur déclenchent le pipeline via des appels
+              aux classes <code>core</code> (ex : lancer
+              <code>Image.imageDEN</code>).
             </p>
           </article>
 
           <article>
             <h3><code>src/main/Main.java</code> & <code>Console.java</code></h3>
             <p>
-              - <code>Main</code> lance l’interface JavaFX (classe <code>Application</code>) ; <code>Console</code> permet un mode non-GUI (scriptable) pour tests batch.
+              - <code>Main</code> lance l’interface JavaFX (classe
+              <code>Application</code>) ; <code>Console</code> permet un mode
+              non-GUI (scriptable) pour tests batch.
             </p>
           </article>
         </section>
@@ -255,31 +358,56 @@
 
           <h3>Complexité & mémoire</h3>
           <p>
-            - Matrice de patches : la mémoire augmente avec <code>N × p</code> (N = nb patches, p = s*s). Pour images grandes ou patchs grands, la matrice peut devenir volumineuse.
-            - Approche : réduire N (sous-échantillonnage), utiliser représentation en float ou traitements par blocs, ou effectuer une ACP économe (SVD tronqué, méthodes incrémentales).
+            - Matrice de patches : la mémoire augmente avec
+            <code>N × p</code> (N = nb patches, p = s*s). Pour images grandes ou
+            patchs grands, la matrice peut devenir volumineuse. - Approche :
+            réduire N (sous-échantillonnage), utiliser représentation en float
+            ou traitements par blocs, ou effectuer une ACP économe (SVD tronqué,
+            méthodes incrémentales).
           </p>
 
           <h3>Performances & parallélisme</h3>
           <p>
-            - Les étapes d'extraction de patches et de projection sont massivement parallélisables. On peut paralléliser :
-            <ul>
-              <li>l'extraction et conversion des patches (threads pour sous-ensembles de l'image)</li>
-              <li>la projection des patches (ExecutorService)</li>
-            </ul>
-            - Pour une version JDK moderne, utiliser <code>ForkJoinPool</code> ou les Streams parallèles avec attention sur la création d'objets temporaires.
+            - Les étapes d'extraction de patches et de projection sont
+            massivement parallélisables. On peut paralléliser :
+          </p>
+          <ul>
+            <li>
+              l'extraction et conversion des patches (threads pour
+              sous-ensembles de l'image)
+            </li>
+            <li>la projection des patches (ExecutorService)</li>
+          </ul>
+          <p>
+            - Pour une version JDK moderne, utiliser
+            <code>ForkJoinPool</code> ou les Streams parallèles avec attention
+            sur la création d'objets temporaires.
           </p>
 
           <h3>Améliorations algorithmiques</h3>
           <ul>
-            <li>Utiliser SVD tronqué (algorithmes itératifs) pour éviter la factorisation complète quand seules k premières composantes sont nécessaires.</li>
-            <li>Tester des méthodes non-linéaires (ex. RPCA, NMF) pour différents types de bruit.</li>
-            <li>Ajouter un pipeline de validation croisée pour choisir automatiquement k (nombre de composantes).</li>
+            <li>
+              Utiliser SVD tronqué (algorithmes itératifs) pour éviter la
+              factorisation complète quand seules k premières composantes sont
+              nécessaires.
+            </li>
+            <li>
+              Tester des méthodes non-linéaires (ex. RPCA, NMF) pour différents
+              types de bruit.
+            </li>
+            <li>
+              Ajouter un pipeline de validation croisée pour choisir
+              automatiquement k (nombre de composantes).
+            </li>
           </ul>
 
           <h3>Robustesse & qualité</h3>
           <p>
-            - Ajout de contrôles sur les tailles de patch et sur le recouvrement pour éviter les erreurs d’indice dans <code>getSubimage</code>.<br />
-            - Logging centralisé (java.util.logging ou SLF4J) pour tracer les erreurs d’E/S et calculs numériques.
+            - Ajout de contrôles sur les tailles de patch et sur le recouvrement
+            pour éviter les erreurs d’indice dans
+            <code>getSubimage</code>.<br />
+            - Logging centralisé (java.util.logging ou SLF4J) pour tracer les
+            erreurs d’E/S et calculs numériques.
           </p>
         </section>
 
@@ -291,34 +419,62 @@
 
           <h3>Mode GUI (JavaFX)</h3>
           <ol>
-            <li>Lancer l’application : <code>java -jar debruitage.jar</code> 
-                <br>ou directement via le Makefile :
-                <ul>
-                  <li><code>make</code> → compile et génère les JAR dans <code>dist/</code></li>
-                  <li><code>make run</code> → lance l’application avec les bons modules JavaFX</li>
-                </ul>
+            <li>
+              Lancer l’application : <code>java -jar debruitage.jar</code>
+              <br />ou directement via le Makefile :
+              <ul>
+                <li>
+                  <code>make</code> → compile et génère les JAR dans
+                  <code>dist/</code>
+                </li>
+                <li>
+                  <code>make run</code> → lance l’application avec les bons
+                  modules JavaFX
+                </li>
+              </ul>
             </li>
-            <li>Choisir une image depuis <code>data/</code> (ex. <code>lena.jpg</code>)</li>
-            <li>Régler : taille de patch (ex. 7), nombre de composantes k, sigma estimé, méthode de seuillage (Dur/Doux), critère (SV/Bayes)</li>
-            <li>Lancer le traitement et visualiser le résultat dans l’onglet <em>Resultat</em> — téléchargeable en JPG</li>
+            <li>
+              Choisir une image depuis <code>data/</code> (ex.
+              <code>lena.jpg</code>)
+            </li>
+            <li>
+              Régler : taille de patch (ex. 7), nombre de composantes k, sigma
+              estimé, méthode de seuillage (Dur/Doux), critère (SV/Bayes)
+            </li>
+            <li>
+              Lancer le traitement et visualiser le résultat dans l’onglet
+              <em>Resultat</em> — téléchargeable en JPG
+            </li>
           </ol>
 
           <h3>Mesures</h3>
-          <p>
-            Le programme calcule et affiche :
-            <ul>
-              <li>PSNR avant/après</li>
-              <li>MSE</li>
-              <li>Variance expliquée par k composantes (courbe cumulative)</li>
-            </ul>
-          </p>
+          <p>Le programme calcule et affiche :</p>
+          <ul>
+            <li>PSNR avant/après</li>
+            <li>MSE</li>
+            <li>Variance expliquée par k composantes (courbe cumulative)</li>
+          </ul>
 
           <h3>Utilisation du Makefile</h3>
           <ul>
-            <li><code>make</code> → compile les sources et génère <code>GM1Groupe9_Used.jar</code> et <code>GM1Groupe1_Executable.jar</code> dans <code>dist/</code></li>
-            <li><code>make run</code> → exécute directement l’application (équivalent à <code>java -jar dist/GM1Groupe9_Used.jar</code>)</li>
-            <li><code>make archive</code> → crée une archive complète du projet (<code>GM1Groupe9_Archive.jar</code>)</li>
-            <li><code>make clean</code> → nettoie les répertoires <code>bin/</code> et <code>dist/</code> tout en restaurant les images de test dans <code>data/</code></li>
+            <li>
+              <code>make</code> → compile les sources et génère
+              <code>GM1Groupe9_Used.jar</code> et
+              <code>GM1Groupe1_Executable.jar</code> dans <code>dist/</code>
+            </li>
+            <li>
+              <code>make run</code> → exécute directement l’application
+              (équivalent à <code>java -jar dist/GM1Groupe9_Used.jar</code>)
+            </li>
+            <li>
+              <code>make archive</code> → crée une archive complète du projet
+              (<code>GM1Groupe9_Archive.jar</code>)
+            </li>
+            <li>
+              <code>make clean</code> → nettoie les répertoires
+              <code>bin/</code> et <code>dist/</code> tout en restaurant les
+              images de test dans <code>data/</code>
+            </li>
           </ul>
         </section>
 
@@ -330,24 +486,48 @@
 
           <div class="gallery-grid">
             <figure>
-              <img src="../assets/project-content/debruitage-par-ACP/lena_before_after.png" alt="Lena avant / après" />
-              <figcaption>Image Lena — original vs débruité (k = 20)</figcaption>
+              <img
+                src="../assets/project-content/debruitage-par-ACP/lena_before_after.png"
+                alt="Lena avant / après"
+              />
+              <figcaption>
+                Image Lena — original vs débruité (k = 20)
+              </figcaption>
             </figure>
 
             <figure>
-              <img src="../assets/project-content/debruitage-par-ACP/patches_grid.png" alt="Patches extraits" />
+              <img
+                src="../assets/project-content/debruitage-par-ACP/patches_grid.png"
+                alt="Patches extraits"
+              />
               <figcaption>Exemple de patchs extraits (size = 7)</figcaption>
             </figure>
 
             <figure>
-              <img src="../assets/project-content/debruitage-par-ACP/variance_explained.png" alt="Variance expliquée" />
-              <figcaption>Courbe de variance expliquée (sélection de composantes)</figcaption>
+              <img
+                src="../assets/project-content/debruitage-par-ACP/variance_explained.png"
+                alt="Variance expliquée"
+              />
+              <figcaption>
+                Courbe de variance expliquée (sélection de composantes)
+              </figcaption>
             </figure>
           </div>
 
           <div class="download-row">
-            <a class="btn-primary" href="../assets/project-content/debruitage-par-ACP/debruitage.jar" download><i class="fa-solid fa-download"></i> Télécharger JAR</a>
-            <a class="btn-secondary" href="../assets/project-content/debruitage-par-ACP/Documentation.pdf" download><i class="fa-solid fa-file-pdf"></i> Documentation complète (PDF)</a>
+            <a
+              class="btn-primary"
+              href="../assets/project-content/debruitage-par-ACP/debruitage.jar"
+              download
+              ><i class="fa-solid fa-download"></i> Télécharger JAR</a
+            >
+            <a
+              class="btn-secondary"
+              href="../assets/project-content/debruitage-par-ACP/Documentation.pdf"
+              download
+              ><i class="fa-solid fa-file-pdf"></i> Documentation complète
+              (PDF)</a
+            >
           </div>
         </section>
 
@@ -357,10 +537,33 @@
         <section class="project-links">
           <h2>Références & ressources</h2>
           <ul>
-            <li><a href="https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales" target="_blank"><i class="fa-solid fa-book"></i> ACP — rappel théorique</a></li>
-            <li><a href="https://commons.apache.org/proper/commons-math/" target="_blank"><i class="fa-solid fa-square-root-variable"></i> Apache Commons Math</a></li>
-            <li><a href="https://openjfx.io/" target="_blank"><i class="fa-brands fa-java"></i> JavaFX</a></li>
-            <li><a href="#" onclick="alert('Code source : projet local. Contactez l’auteur pour l’accès.'); return false;"><i class="fa-brands fa-github"></i> Code source (privé)</a></li>
+            <li>
+              <a
+                href="https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales"
+                target="_blank"
+                ><i class="fa-solid fa-book"></i> ACP — rappel théorique</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://commons.apache.org/proper/commons-math/"
+                target="_blank"
+                ><i class="fa-solid fa-square-root-variable"></i> Apache Commons
+                Math</a
+              >
+            </li>
+            <li>
+              <a href="https://openjfx.io/" target="_blank"
+                ><i class="fa-brands fa-java"></i> JavaFX</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="alert('Code source : projet local. Contactez l’auteur pour l’accès.'); return false;"
+                ><i class="fa-brands fa-github"></i> Code source (privé)</a
+              >
+            </li>
           </ul>
         </section>
 
@@ -392,8 +595,12 @@ for each basis vector u_i:
 
           <h3>Critères de seuillage</h3>
           <p>
-            - <code>seuilVisuShrink</code> : règle basée sur bruit et taille d'image (valeur scalaire λ calculée, méthode classique en ondelettes).<br />
-            - <code>seuilBayesShrink</code> : estimation statistique bayésienne du seuil en fonction de la variance du bruit et de la variance estimée du signal.
+            - <code>seuilVisuShrink</code> : règle basée sur bruit et taille
+            d'image (valeur scalaire λ calculée, méthode classique en
+            ondelettes).<br />
+            - <code>seuilBayesShrink</code> : estimation statistique bayésienne
+            du seuil en fonction de la variance du bruit et de la variance
+            estimée du signal.
           </p>
         </section>
 
@@ -403,13 +610,18 @@ for each basis vector u_i:
         <section class="project-learnings">
           <h2>Conclusion et perspectives</h2>
           <p>
-            Le projet est un cadre flexible pour expérimenter des méthodes de débruitage basées sur des décompositions linéaires.
-            À l’état actuel, la version JavaFX propose une interface complète et un pipeline reproductible ; les axes prioritaires d’amélioration sont :
+            Le projet est un cadre flexible pour expérimenter des méthodes de
+            débruitage basées sur des décompositions linéaires. À l’état actuel,
+            la version JavaFX propose une interface complète et un pipeline
+            reproductible ; les axes prioritaires d’amélioration sont :
           </p>
           <ul>
             <li>Optimisation mémoire (SVD tronqué, traitements par blocs)</li>
             <li>Parallélisation des étapes d’extraction/projection</li>
-            <li>Ajout d’un module d’évaluation automatisée (benchmarks, PSNR sur datasets standards)</li>
+            <li>
+              Ajout d’un module d’évaluation automatisée (benchmarks, PSNR sur
+              datasets standards)
+            </li>
             <li>Ajout d’un packaging Maven/Gradle et tests unitaires JUnit</li>
           </ul>
         </section>
@@ -418,6 +630,5 @@ for each basis vector u_i:
 
     <div id="footer"></div>
     <script src="../js/dynamic-content.js" defer></script>
-   
   </body>
 </html>
