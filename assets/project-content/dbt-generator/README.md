@@ -34,10 +34,10 @@ Ces étapes sont orchestrées via LangGraph, avec des nœuds spécialisés (inge
 
 ## 📦 Installation
 
-### 1. Cloner le dépôt
+### 1. Cloner le dépôt / se procurer le projet
 
 ```bash
-git clone https://github.gsissc.myatos.net/FR-BDX-ATOS-DATALAB/DataPipeline_IA.git
+git clone {ref}/DataPipeline_IA.git
 cd DataPipeline_IA
 ```
 
